@@ -122,7 +122,6 @@
                                                         <input type="hidden" name="description"
                                                             value="{{ survey.description }}">
 
-
                                                         <div class="dropdown-menu justify-content-center"
                                                             aria-labelledby="dropdownMenuLink">
                                                             <a style="cursor: pointer" class="dropdown-item"
@@ -140,8 +139,10 @@
 
                                     <div id="collapse{{ survey.id }}" class="collapse"
                                         aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
-                                        <div class="card-body">
-                                            {{ survey.description }}
+                                        <div class="card-body" id="survey-description-main">
+                                            <textarea class="summernote" name="description" rows="7" placeholder="Enter description"
+                                            required>{{ survey.description }}</textarea>
+                                            <!-- {{ survey.description }} -->
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +247,9 @@
                                     <div id="collapse{{ survey.id }}" class="collapse"
                                         aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
                                         <div class="card-body">
-                                            {{ survey.description }}
+                                            <textarea class="summernote" name="description" rows="7" placeholder="Enter description"
+                                            required>{{ survey.description }}</textarea>
+                                            <!-- {{ survey.description }} -->
                                         </div>
                                     </div>
                                 </div>
@@ -344,7 +347,9 @@
                                     <div id="collapse{{ survey.id }}" class="collapse"
                                         aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
                                         <div class="card-body">
-                                            {{ survey.description }}
+                                            <textarea class="summernote" name="description" rows="7" placeholder="Enter description"
+                                            required>{{ survey.description }}</textarea>
+                                            <!-- {{ survey.description }} -->
                                         </div>
                                     </div>
                                 </div>
@@ -389,10 +394,12 @@
                         <div class="invalid-feedback">Please enter a survey title.</div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" id="survey-description">
                         <label>Description<span style="color: red">&nbsp;*</span></label>
-                        <textarea name="description" class="form-control" placeholder="Enter description"
-                            style="max-height: 20rem; min-height: 5rem;" required="required"></textarea>
+                        <!-- <textarea name="description" class="form-control" placeholder="Enter description"
+                            style="max-height: 20rem; min-height: 5rem;" required="required"></textarea> -->
+                        <textarea id="summernote" name="description" rows="7" placeholder="Enter description"
+                            required></textarea>
                         <small class="form-text text-muted">Recommended to include a short description of your
                             survey.</small>
                         <div class="invalid-feedback">Please enter a survey description.</div>

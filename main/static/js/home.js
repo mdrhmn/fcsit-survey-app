@@ -34,3 +34,41 @@ $(document).ready(function () {
     });
 
 });
+
+
+$(document).ready(function () {
+    $('#summernote').summernote({
+        height: 200, // set editor height
+        minHeight: 200, // set minimum height of editor
+        maxHeight: 340, // set maximum height of editor
+        // focus: true // set focus to editable area after initializing summernote
+        placeholder: 'Description of incident',
+
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['table', ['table']],
+            // ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+    });
+
+    $('.summernote').summernote({
+        height: 200, // set editor height
+        minHeight: 200, // set minimum height of editor
+        maxHeight: 340, // set maximum height of editor
+        airMode: true,
+        // focus: true // set focus to editable area after initializing summernote
+        placeholder: '',
+
+    });
+
+    $('#survey-description-main .note-editable').attr('contenteditable', false);  
+
+
+});
