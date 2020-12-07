@@ -6,5 +6,15 @@
     background-color: rgba(255, 255, 255, 0);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-top: 0px solid rgba(0,0,0,.2);
+    border-top: 0px solid rgba(0, 0, 0, .2);
+}
+
+#main-container {
+    min-height: 60vh;
+    /* will cover the 100% of viewport */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 100px;
+    /* height of your footer */
 }
