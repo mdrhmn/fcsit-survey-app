@@ -422,7 +422,7 @@
                             <option value="" selected style="display: none">Not set</option>
 
                             {% for course_code in course_list %}
-                            <option value="{{ course_code.code }}">
+                            <option selected type="{{ course_code.year.year }}" value="{{ course_code.code }}">
                                 {{ course_code.code }} ({{ course_code.name }})</option>
                             {% endfor %}
 
@@ -464,7 +464,7 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
 <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
