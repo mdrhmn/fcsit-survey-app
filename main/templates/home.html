@@ -29,20 +29,8 @@
 {% block content_container %}
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light">
 
-    {% if messages %}
-    {% for message in messages %}
-
-    {% if message.tags == 'error' %}
-    <div style="font-size: 80%; display:inline-block; margin-bottom: 1rem;" class=" alert alert-danger" role="alert">
-        {{ message }}</div>
-    {% elif message.tags == 'success'%}
-    <div style="font-size: 80%; display:inline-block; margin-bottom: 1rem;" class=" alert alert-success" role="alert">
-        {{ message }}</div>
-    {% endif %}
-    {% endfor %}
-    {% endif %}
-
     <div class="row justify-content-center" style="flex-wrap: nowrap">
+
         <div class="col-auto">
             <div class="nav flex-column nav-pills" style="text-align: center;" id="v-pills-tab" role="tablist"
                 aria-orientation="vertical">
@@ -53,13 +41,27 @@
                 {% else %}
                 <a class="nav-link" id="{{ year.year }}-tab" data-toggle="tab" href="#y{{ year.year }}" role="tab"
                     aria-controls="y{{ year.year }}" aria-selected="false">{{ year.label }}</a>
-                {% endif%}
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
 
         <div class="col-9">
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.tags == 'error' %}
+            <div style="font-size: 100%; display:inline-block; margin-bottom: 1rem;" class="alert alert-danger"
+                role="alert">
+                {{ message }}</div>
+            {% elif message.tags == 'success'%}
+            <div style="font-size: 100%; display:inline-block; margin-bottom: 1rem;" class="alert alert-success"
+                role="alert">
+                {{ message }}</div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
             <div class="tab-content">
+
                 <div class="tab-pane fade show active" id="y1" role="tabpanel" aria-labelledby="y1-tab">
                     <h5>Here are the list of surveys for Year 1 faculty courses:</h5>
 
@@ -79,13 +81,13 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#y1-c3">Course 1-3</a>
                         </li> -->
-                        {% endif%}
+                        {% endif %}
                         {% endfor %}
                     </ul>
 
                     <div class="tab-content" style="margin-bottom:50px">
                         {% for course in y1_course_list %}
-
+                        {% if forloop.first %}
                         <div class="tab-pane fade show active" id="y1-{{ course.code }}">
                             <br>
                             <div id="accordion">
@@ -140,17 +142,87 @@
                                     <div id="collapse{{ survey.id }}" class="collapse"
                                         aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
                                         <div class="card-body" id="survey-description-main">
-                                            <textarea class="summernote" name="description" rows="7" placeholder="Enter description"
-                                            required>{{ survey.description }}</textarea>
+                                            <textarea class="summernote" name="description" rows="7"
+                                                placeholder="Enter description"
+                                                required>{{ survey.description }}</textarea>
                                             <!-- {{ survey.description }} -->
                                         </div>
                                     </div>
                                 </div>
-                                {% endif%}
+                                {% endif %}
                                 {% endfor %}
 
                             </div>
                         </div>
+                        {% else %}
+                        <div class="tab-pane fade" id="y1-{{ course.code }}">
+                            <br>
+                            <div id="accordion">
+
+                                {% for survey in survey_list %}
+                                {% if survey.year.year == 1 and survey.course_code.code == course.code and survey.approved == True %}
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row justify-content-between">
+                                            <div class="col-md-6">
+                                                <h6 class="mb-0">
+                                                    <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
+                                                        aria-expanded="true"
+                                                        aria-controls="collapse{{ survey.id }}">{{ survey.title }}</span>
+
+                                                    <!-- <a type="submit" class="float-right" href="{% url 'home' %}"><i class="fab fa-whatsapp fa-lg"></i></a> -->
+
+                                                </h6>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <a href="{{ survey.link }}">Survey Link</a>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="dropdown">
+                                                    <a role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-h"></i>
+                                                    </a>
+                                                    <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="survey_link" value="{{ survey.link }}">
+                                                        <input type="hidden" name="title" value="{{ survey.title }}">
+                                                        <input type="hidden" name="description"
+                                                            value="{{ survey.description }}">
+
+                                                        <div class="dropdown-menu justify-content-center"
+                                                            aria-labelledby="dropdownMenuLink">
+                                                            <a style="cursor: pointer" class="dropdown-item"
+                                                                onclick="this.closest('form').submit();return false;">Share
+                                                                to <i class="fab fa-whatsapp fa-lg"></i></a>
+                                                            <!-- <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a> -->
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="collapse{{ survey.id }}" class="collapse"
+                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
+                                        <div class="card-body" id="survey-description-main">
+                                            <textarea class="summernote" name="description" rows="7"
+                                                placeholder="Enter description"
+                                                required>{{ survey.description }}</textarea>
+                                            <!-- {{ survey.description }} -->
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        {% endif %}
+
                         {% endfor %}
 
                         <!-- <div class="tab-pane fade" id="y1-c2">This is the content for subtab 1.2.</div>
@@ -178,13 +250,14 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#y1-c3">Course 1-3</a>
                         </li> -->
-                        {% endif%}
+                        {% endif %}
                         {% endfor %}
                     </ul>
 
                     <div class="tab-content" style="margin-bottom:50px">
                         {% for course in y2_course_list %}
-                        <div class="tab-pane fade show" id="y2-{{ course.code }}">
+                        {% if forloop.first %}
+                        <div class="tab-pane fade show active" id="y2-{{ course.code }}">
                             <br>
                             <div id="accordion">
 
@@ -247,17 +320,95 @@
                                     <div id="collapse{{ survey.id }}" class="collapse"
                                         aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
                                         <div class="card-body">
-                                            <textarea class="summernote" name="description" rows="7" placeholder="Enter description"
-                                            required>{{ survey.description }}</textarea>
+                                            <textarea class="summernote" name="description" rows="7"
+                                                placeholder="Enter description"
+                                                required>{{ survey.description }}</textarea>
                                             <!-- {{ survey.description }} -->
                                         </div>
                                     </div>
                                 </div>
-                                {% endif%}
+                                {% endif %}
                                 {% endfor %}
 
                             </div>
                         </div>
+                        {% else %}
+                        <div class="tab-pane fade" id="y2-{{ course.code }}">
+                            <br>
+                            <div id="accordion">
+
+                                {% for survey in survey_list %}
+                                {% if survey.year.year == 2 and survey.course_code.code == course.code and survey.approved == True %}
+                                <div class="card">
+                                    <div class="card-header">
+                                        <!-- <h6 class="mb-0">
+                                            <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
+                                                aria-expanded="true"
+                                                aria-controls="collapse{{ survey.id }}">{{ survey.title }}</span>
+
+                                            <a class="float-right" href="{{ survey.link }}">Link to Survey Form</a>
+                                        </h6> -->
+
+                                        <div class="row justify-content-between">
+                                            <div class="col-md-6">
+                                                <h6 class="mb-0">
+                                                    <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
+                                                        aria-expanded="true"
+                                                        aria-controls="collapse{{ survey.id }}">{{ survey.title }}</span>
+
+                                                    <!-- <a type="submit" class="float-right" href="{% url 'home' %}"><i class="fab fa-whatsapp fa-lg"></i></a> -->
+
+                                                </h6>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <a href="{{ survey.link }}">Survey Link</a>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="dropdown">
+                                                    <a role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-h"></i>
+                                                    </a>
+                                                    <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="survey_link" value="{{ survey.link }}">
+                                                        <input type="hidden" name="title" value="{{ survey.title }}">
+                                                        <input type="hidden" name="description"
+                                                            value="{{ survey.description }}">
+
+
+                                                        <div class="dropdown-menu justify-content-center"
+                                                            aria-labelledby="dropdownMenuLink">
+                                                            <a style="cursor: pointer" class="dropdown-item"
+                                                                onclick="this.closest('form').submit();return false;">Share
+                                                                to <i class="fab fa-whatsapp fa-lg"></i></a>
+                                                            <!-- <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a> -->
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="collapse{{ survey.id }}" class="collapse"
+                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <textarea class="summernote" name="description" rows="7"
+                                                placeholder="Enter description"
+                                                required>{{ survey.description }}</textarea>
+                                            <!-- {{ survey.description }} -->
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        {% endif %}
                         {% endfor %}
 
                         <!-- <div class="tab-pane fade" id="y2-c2">This is the content for subtab 2.2.</div>
@@ -278,12 +429,13 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#y3-{{ course.code }}">{{ course.code }}</a>
                         </li>
-                        {% endif%}
+                        {% endif %}
                         {% endfor %}
                     </ul>
 
                     <div class="tab-content" style="margin-bottom:50px">
                         {% for course in y3_course_list %}
+                        {% if forloop.first %}
                         <div class="tab-pane fade show active" id="y3-{{ course.code }}">
                             <br>
                             <div id="accordion">
@@ -347,17 +499,95 @@
                                     <div id="collapse{{ survey.id }}" class="collapse"
                                         aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
                                         <div class="card-body">
-                                            <textarea class="summernote" name="description" rows="7" placeholder="Enter description"
-                                            required>{{ survey.description }}</textarea>
+                                            <textarea class="summernote" name="description" rows="7"
+                                                placeholder="Enter description"
+                                                required>{{ survey.description }}</textarea>
                                             <!-- {{ survey.description }} -->
                                         </div>
                                     </div>
                                 </div>
-                                {% endif%}
+                                {% endif %}
                                 {% endfor %}
 
                             </div>
                         </div>
+                        {% else %}
+                        <div class="tab-pane fade" id="y3-{{ course.code }}">
+                            <br>
+                            <div id="accordion">
+
+                                {% for survey in survey_list %}
+                                {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True %}
+                                <div class="card">
+                                    <div class="card-header">
+                                        <!-- <h6 class="mb-0">
+                                            <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
+                                                aria-expanded="true"
+                                                aria-controls="collapse{{ survey.id }}">{{ survey.title }}</span>
+
+                                            <a class="float-right" href="{{ survey.link }}">Link to Survey Form</a>
+                                        </h6> -->
+
+                                        <div class="row justify-content-between">
+                                            <div class="col-md-6">
+                                                <h6 class="mb-0">
+                                                    <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
+                                                        aria-expanded="true"
+                                                        aria-controls="collapse{{ survey.id }}">{{ survey.title }}</span>
+
+                                                    <!-- <a type="submit" class="float-right" href="{% url 'home' %}"><i class="fab fa-whatsapp fa-lg"></i></a> -->
+
+                                                </h6>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <a href="{{ survey.link }}">Survey Link</a>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="dropdown">
+                                                    <a role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-h"></i>
+                                                    </a>
+                                                    <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="survey_link" value="{{ survey.link }}">
+                                                        <input type="hidden" name="title" value="{{ survey.title }}">
+                                                        <input type="hidden" name="description"
+                                                            value="{{ survey.description }}">
+
+
+                                                        <div class="dropdown-menu justify-content-center"
+                                                            aria-labelledby="dropdownMenuLink">
+                                                            <a style="cursor: pointer" class="dropdown-item"
+                                                                onclick="this.closest('form').submit();return false;">Share
+                                                                to <i class="fab fa-whatsapp fa-lg"></i></a>
+                                                            <!-- <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a> -->
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="collapse{{ survey.id }}" class="collapse"
+                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <textarea class="summernote" name="description" rows="7"
+                                                placeholder="Enter description"
+                                                required>{{ survey.description }}</textarea>
+                                            <!-- {{ survey.description }} -->
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        {% endif %}
                         {% endfor %}
                         <!-- <div class="tab-pane fade show active" id="y3-c1">This is the content for subtab 3.1.</div>
                         <div class="tab-pane fade" id="y3-c2">This is the content for subtab 3.2.</div>
