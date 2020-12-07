@@ -13,6 +13,7 @@ import django_heroku
 import os
 import dotenv
 import dj_database_url
+import socket
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,10 +30,16 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = '1n#w!0nafu6i(!b7(19+v$5w5(ro7633=fxltzap!s)19hw$c%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://fcsit-survey-app.herokuapp.com/']
 
+if socket.gethostname().endswith(".local"): # True in your local computer
+    DEBUG = False
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1",]
+else:
+    DEBUG = False
+    ALLOWED_HOSTS = ['https://fcsit-survey-app.herokuapp.com/']
 
 # Application definition
 
@@ -131,7 +138,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
@@ -140,3 +147,20 @@ django_heroku.settings(locals())
 
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
+
+# import logging
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console'],
+#             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+#         },
+#     },
+# }

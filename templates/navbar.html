@@ -4,8 +4,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 
     <a class="navbar-brand mb-0 h1">
-        <!-- <img src="{% static 'img/mohlogo.jpg' %}" width="30" height="30" class="d-inline-block align-top"
-            alt=""> -->
         FCSIT Survey App
     </a>
 
@@ -22,37 +20,6 @@
             <li class="{% if request.path == '/admin/' %}nav-item active{% else %}nav-item{% endif %}">
                 <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
             </li>
-            <li class="{% if request.path == '/about_us/' %}nav-item active{% else %}nav-item{% endif %}">
-                <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
-            </li>
-
-            <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li> -->
         </ul>
-
-        <!-- <ul class="nav navbar-nav navbar-right ml-auto">
-            <li class="nav-item dropdown">
-                <a href="#" data-toggle="dropdown"
-                    class="nav-link dropdown-toggle user-action">{{ request.user.full_name }}<b class="caret"></b></a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a href="" class="dropdown-item"><i class="fas fa-user"></i> Profile</a></li>
-                    <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
-                    <li class="divider dropdown-divider"></li>
-                    <li>
-                        <div class="text-center">
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul> -->
     </div>
 </nav>

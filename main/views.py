@@ -44,8 +44,8 @@ def home(request):
 
     return render(request, 'home.html', context)
 
-def about_us(request):
-    return render(request, 'about_us.html')
+# def about_us(request):
+#     return render(request, 'about_us.html')
 
 def whatsapp_api(request):
     text = request.POST['title'] + '\n\n' + request.POST['description'] + '\n\n' + request.POST['survey_link']
