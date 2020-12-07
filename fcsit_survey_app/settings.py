@@ -31,7 +31,7 @@ SECRET_KEY = '1n#w!0nafu6i(!b7(19+v$5w5(ro7633=fxltzap!s)19hw$c%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://fcsit-survey-app.herokuapp.com/']
 
 
 # Application definition
