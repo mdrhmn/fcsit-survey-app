@@ -42,7 +42,7 @@ $(document).ready(function () {
         minHeight: 200, // set minimum height of editor
         maxHeight: 340, // set maximum height of editor
         // focus: true // set focus to editable area after initializing summernote
-        placeholder: 'Description of incident',
+        placeholder: 'Enter description',
 
         toolbar: [
             ['style', ['style']],
