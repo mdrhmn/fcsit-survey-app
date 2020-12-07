@@ -1,5 +1,5 @@
 .footer {
-    position: absolute;
+    position: static;
     bottom: 0;
     width: 100%;
     /* line-height: 60px; */
@@ -7,10 +7,4 @@
     background-color: #343a40!important;
     color: #fff;
     text-align: center;
-}
-
-@media (max-width: 480px) {
-    footer {
-        position: static;
-    }
 }
