@@ -37,6 +37,9 @@
 
 	<!-- Custom CSS -->
 	<link rel='stylesheet' type="text/css" href="{% static 'css/general.css' %}">
+	<link rel='stylesheet' type="text/css" href="{% static 'css/navbar.css' %}">
+	<link rel='stylesheet' type="text/css" href="{% static 'css/footer.css' %}">
+
 	{% block css %}{% endblock %}
 
 	<!-- ------------------------------ JS LINKS ------------------------------- -->
@@ -62,7 +65,7 @@
 
 	<!-- Summernote (with Bootstrap 4) JS-->
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-	
+
 	<!-- Moment JS -->
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
 		integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
@@ -73,10 +76,14 @@
 
 <body>
 	{% include 'navbar.html' %}
-	
-	<div class="incident-container">
-		{% block content_container %}{% endblock %}
-	</div>
+
+	{% block content_container %}{% endblock %}
+
+	<!-- <div class="incident-container">
+	</div> -->
+
+
+	{% include 'footer.html' %}
 
 </body>
 

@@ -1,18 +1,12 @@
 {% load static %}
 
-<head>
-    {% block css %}
-    <link rel='stylesheet' type="text/css" href="{% static 'css/navbar.css' %}">
-    {% endblock %}
-</head>
-
 <!-- ------------------------------- NAVBAR -------------------------------- -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 
-    <a class="navbar-brand">
+    <a class="navbar-brand mb-0 h1">
         <!-- <img src="{% static 'img/mohlogo.jpg' %}" width="30" height="30" class="d-inline-block align-top"
             alt=""> -->
-            FCSIT Survey App
+        FCSIT Survey App
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -21,14 +15,29 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="">Patient Form</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="{% if request.path == '/home/' %}nav-item active{% else %}nav-item{% endif %}"> 
+                <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Patient Management</a>
+            <li class="{% if request.path == '/admin/' %}nav-item active{% else %}nav-item{% endif %}">
+                <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
             </li>
-        </ul> -->
+            <li class="{% if request.path == '/about_us/' %}nav-item active{% else %}nav-item{% endif %}">
+                <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Dropdown link
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
 
         <!-- <ul class="nav navbar-nav navbar-right ml-auto">
             <li class="nav-item dropdown">

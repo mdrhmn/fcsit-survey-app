@@ -1,7 +1,11 @@
-.navbar-light .navbar-nav .nav-link {
+/* .navbar-light .navbar-nav .nav-link {
+    color: black;
+} */
+
+.navbar-light .nav-item.active .nav-link {
     color: black;
 }
 
 .fixed-top {
-    position: sticky !important; 
+    position: sticky !important;
 }
