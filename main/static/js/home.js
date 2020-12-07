@@ -62,12 +62,13 @@ $(document).ready(function () {
         height: 200, // set editor height
         minHeight: 200, // set minimum height of editor
         maxHeight: 340, // set maximum height of editor
-        airMode: true,
+        airMode: false,
+        toolbar: [],
         // focus: true // set focus to editable area after initializing summernote
         placeholder: '',
 
     });
-
+    $("#survey-description-main .note-resizebar").removeClass("note-resizebar")
     $('#survey-description-main .note-editable').attr('contenteditable', false);  
 
 
