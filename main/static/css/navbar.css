@@ -1,0 +1,7 @@
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.fixed-top {
+    position: sticky !important; 
+}

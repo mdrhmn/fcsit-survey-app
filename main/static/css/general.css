@@ -1,0 +1,120 @@
+/* -------------------------------------------------------------------------- */
+/*                                 GENERAL CSS                                */
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------ FONT FAMILIES ----------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* ---------------------------- GENERAL SETTINGS ---------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Allows for smooth scrolling transition */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body settings */
+
+body {
+    background-color: #eee;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* Prevents overflow of page width at responsive screen sizes */
+    overflow-x: hidden;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    /* max-width: 100%; */
+}
+
+/* ----------------------------- INCIDENT HEADER ---------------------------- */
+
+#incident-header {
+    cursor: pointer;
+}
+
+.clinical-info-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* --------------------------- INCIDENT CONTAINER --------------------------- */
+
+.incident-container {
+    border-radius: 15px;
+    background: #FFFFFF;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* width: 100%;
+    height: 100%; */
+    padding: 20px;
+    /* margin-left: 5%;
+    margin-top: 5%; */
+    margin-left: 4%;
+    margin-top: 3%;
+    width: 92vw;
+    height: 100%;
+}
+
+/* --------------------------- DASHBOARD CONTAINER -------------------------- */
+
+.dashboard-container {
+    border-radius: 15px;
+    background: transparent;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* width: 100%;
+    height: 100%; */
+    padding: 20px;
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 92vw;
+    height: 100%;
+}
+
+/* ---------------------------- MAIN TICKET TABLE --------------------------- */
+
+th {
+    text-align: center;
+    /* vertical-align: middle; */
+}
+
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.row-center {
+    text-align: center;
+}
+
+/* ----------------------------- NAV LINK IMAGE ----------------------------- */
+
+.nav-link img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin: -8px 0;
+    float: left;
+    margin-right: 10px;
+}
+
+/* --------------------- OVERRIDE BOOTSTRAP-SELECT STYLE -------------------- */
+.bootstrap-select .btn {
+	border: 1px solid #ced4da;
+	background-color: #fff;
+}
+

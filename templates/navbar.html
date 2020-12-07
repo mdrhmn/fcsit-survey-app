@@ -1,0 +1,49 @@
+{% load static %}
+
+<head>
+    {% block css %}
+    <link rel='stylesheet' type="text/css" href="{% static 'css/navbar.css' %}">
+    {% endblock %}
+</head>
+
+<!-- ------------------------------- NAVBAR -------------------------------- -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand">
+        <!-- <img src="{% static 'img/mohlogo.jpg' %}" width="30" height="30" class="d-inline-block align-top"
+            alt=""> -->
+            FCSIT Survey App
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Patient Form</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Patient Management</a>
+            </li>
+        </ul> -->
+
+        <!-- <ul class="nav navbar-nav navbar-right ml-auto">
+            <li class="nav-item dropdown">
+                <a href="#" data-toggle="dropdown"
+                    class="nav-link dropdown-toggle user-action">{{ request.user.full_name }}<b class="caret"></b></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="" class="dropdown-item"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li class="divider dropdown-divider"></li>
+                    <li>
+                        <div class="text-center">
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul> -->
+    </div>
+</nav>
