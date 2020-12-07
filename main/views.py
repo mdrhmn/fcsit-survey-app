@@ -33,7 +33,7 @@ def home(request):
         new_survey.save()
 
         messages.success(
-                request, "Survey form application successful")
+                request, "Survey form application successful. Your form will appear on the website upon approval.")
 
     context = {
         'survey_list': Survey.objects.all(),
