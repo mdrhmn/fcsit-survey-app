@@ -72,7 +72,6 @@ $(document).ready(function () {
     $("#survey-description-main .note-resizebar").removeClass("note-resizebar")
     $('#survey-description-main .note-editable').attr('contenteditable', false);
 
-
     $(".accordion_search_bar").on("keypress click input", function () {
         let search_id = $(this).attr('id');
 
@@ -103,6 +102,12 @@ $(document).ready(function () {
             }
         }
     });
+
+    var iso = new Date().toISOString();
+    var minDate = iso.substring(0, iso.length - 14);
+
+    $("#expiry-date").attr("min", minDate);
+
 });
 
 $(function () {

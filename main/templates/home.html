@@ -98,8 +98,9 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
-                                            placeholder="Search title, description or PIC name" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}"
+                                            type="search" placeholder="Search title, description or PIC name"
+                                            aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -108,25 +109,28 @@
                             <div id="accordion-{{ course.code }}" class="accordion">
 
                                 {% for survey in survey_list %}
-                                {% if survey.year.year == 1 and survey.course_code.code == course.code and survey.approved == True %}
+
+                                {% if survey.year.year == 1 and survey.course_code.code == course.code and survey.approved == True and survey.expiry_date != current_date %}
                                 <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
                                         <div class="row justify-content-between">
                                             <div class="col-md-6">
-                                                <h6 class="mb-0">
-                                                    <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                        aria-expanded="true" aria-controls="collapse{{ survey.id }}"
-                                                        class="survey_title">{{ survey.title }}</span>
+                                                <h6 class="mb-0" data-toggle="collapse"
+                                                    data-target="#collapse{{ survey.id }}" aria-expanded="true"
+                                                    aria-controls="collapse{{ survey.id }}">
 
-                                                    <!-- <a type="submit" class="float-right" href="{% url 'home' %}"><i class="fab fa-whatsapp fa-lg"></i></a> -->
+                                                    <span class="survey_title">{{ survey.title }}</span>
+                                                    <small class="form-text text-muted">Due on
+                                                        {{ survey.expiry_date }}</small>
 
                                                 </h6>
                                             </div>
 
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <a target="_blank" href="{{ survey.link }}">Survey Link</a>
                                             </div>
-                                            <div class="col-auto">
+
+                                            <div class="col-auto my-auto">
                                                 <div class="dropdown">
                                                     <a role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
@@ -177,11 +181,14 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Name</label>
-                                                    <input type="text" class="form-control PIC_name" value="{{ survey.PIC_name }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control PIC_name"
+                                                        value="{{ survey.PIC_name }}" style="background-color: white;"
+                                                        disabled>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Email</label>
-                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}"
+                                                        style="background-color: white;" disabled>
                                                 </div>
                                             </div>
 
@@ -208,8 +215,9 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
-                                            placeholder="Search title, description or PIC name" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}"
+                                            type="search" placeholder="Search title, description or PIC name"
+                                            aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -218,25 +226,26 @@
                             <div id="accordion-{{ course.code }}" class="accordion">
 
                                 {% for survey in survey_list %}
-                                {% if survey.year.year == 1 and survey.course_code.code == course.code and survey.approved == True %}
+                                {% if survey.year.year == 1 and survey.course_code.code == course.code and survey.approved == True and survey.expiry_date != current_date %}
                                 <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
                                         <div class="row justify-content-between">
                                             <div class="col-md-6">
-                                                <h6 class="mb-0">
-                                                    <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                        aria-expanded="true" aria-controls="collapse{{ survey.id }}"
-                                                        class="survey_title">{{ survey.title }}</span>
+                                                <h6 class="mb-0" data-toggle="collapse"
+                                                    data-target="#collapse{{ survey.id }}" aria-expanded="true"
+                                                    aria-controls="collapse{{ survey.id }}">
 
-                                                    <!-- <a type="submit" class="float-right" href="{% url 'home' %}"><i class="fab fa-whatsapp fa-lg"></i></a> -->
+                                                    <span class="survey_title">{{ survey.title }}</span>
+                                                    <small class="form-text text-muted">Due on
+                                                        {{ survey.expiry_date }}</small>
 
                                                 </h6>
                                             </div>
 
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <a target="_blank" href="{{ survey.link }}">Survey Link</a>
                                             </div>
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <div class="dropdown">
                                                     <a role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
@@ -287,11 +296,14 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Name</label>
-                                                    <input type="text" class="form-control PIC_name" value="{{ survey.PIC_name }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control PIC_name"
+                                                        value="{{ survey.PIC_name }}" style="background-color: white;"
+                                                        disabled>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Email</label>
-                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}"
+                                                        style="background-color: white;" disabled>
                                                 </div>
                                             </div>
 
@@ -353,8 +365,9 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
-                                            placeholder="Search title, description or PIC name" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}"
+                                            type="search" placeholder="Search title, description or PIC name"
+                                            aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -363,33 +376,26 @@
                             <div id="accordion-{{ course.code }}" class="accordion">
 
                                 {% for survey in survey_list %}
-                                {% if survey.year.year == 2 and survey.course_code.code == course.code and survey.approved == True %}
+                                {% if survey.year.year == 2 and survey.course_code.code == course.code and survey.approved == True and survey.expiry_date != current_date %}
                                 <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
-                                        <!-- <h6 class="mb-0">
-                                            <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                aria-expanded="true"
-                                                aria-controls="collapse{{ survey.id }}">{{ survey.title }}</span>
-
-                                            <a class="float-right" href="{{ survey.link }}">Link to Survey Form</a>
-                                        </h6> -->
-
                                         <div class="row justify-content-between">
                                             <div class="col-md-6">
-                                                <h6 class="mb-0">
-                                                    <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                        aria-expanded="true" aria-controls="collapse{{ survey.id }}"
-                                                        class="survey_title">{{ survey.title }}</span>
+                                                <h6 class="mb-0" data-toggle="collapse"
+                                                    data-target="#collapse{{ survey.id }}" aria-expanded="true"
+                                                    aria-controls="collapse{{ survey.id }}">
 
-                                                    <!-- <a type="submit" class="float-right" href="{% url 'home' %}"><i class="fab fa-whatsapp fa-lg"></i></a> -->
+                                                    <span class="survey_title">{{ survey.title }}</span>
+                                                    <small class="form-text text-muted">Due on
+                                                        {{ survey.expiry_date }}</small>
 
                                                 </h6>
                                             </div>
 
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <a target="_blank" href="{{ survey.link }}">Survey Link</a>
                                             </div>
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <div class="dropdown">
                                                     <a role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
@@ -440,11 +446,14 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Name</label>
-                                                    <input type="text" class="form-control PIC_name" value="{{ survey.PIC_name }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control PIC_name"
+                                                        value="{{ survey.PIC_name }}" style="background-color: white;"
+                                                        disabled>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Email</label>
-                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}"
+                                                        style="background-color: white;" disabled>
                                                 </div>
                                             </div>
 
@@ -471,8 +480,9 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
-                                            placeholder="Search title, description or PIC name" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}"
+                                            type="search" placeholder="Search title, description or PIC name"
+                                            aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -481,33 +491,26 @@
                             <div id="accordion-{{ course.code }}" class="accordion">
 
                                 {% for survey in survey_list %}
-                                {% if survey.year.year == 2 and survey.course_code.code == course.code and survey.approved == True %}
+                                {% if survey.year.year == 2 and survey.course_code.code == course.code and survey.approved == True and survey.expiry_date != current_date %}
                                 <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
-                                        <!-- <h6 class="mb-0">
-                                            <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                aria-expanded="true"
-                                                aria-controls="collapse{{ survey.id }}">{{ survey.title }}</span>
-
-                                            <a class="float-right" href="{{ survey.link }}">Link to Survey Form</a>
-                                        </h6> -->
-
                                         <div class="row justify-content-between">
                                             <div class="col-md-6">
-                                                <h6 class="mb-0">
-                                                    <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                        aria-expanded="true" aria-controls="collapse{{ survey.id }}"
-                                                        class="survey_title">{{ survey.title }}</span>
+                                                <h6 class="mb-0" data-toggle="collapse"
+                                                    data-target="#collapse{{ survey.id }}" aria-expanded="true"
+                                                    aria-controls="collapse{{ survey.id }}">
 
-                                                    <!-- <a type="submit" class="float-right" href="{% url 'home' %}"><i class="fab fa-whatsapp fa-lg"></i></a> -->
+                                                    <span class="survey_title">{{ survey.title }}</span>
+                                                    <small class="form-text text-muted">Due on
+                                                        {{ survey.expiry_date }}</small>
 
                                                 </h6>
                                             </div>
 
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <a target="_blank" href="{{ survey.link }}">Survey Link</a>
                                             </div>
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <div class="dropdown">
                                                     <a role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
@@ -558,11 +561,14 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Name</label>
-                                                    <input type="text" class="form-control PIC_name" value="{{ survey.PIC_name }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control PIC_name"
+                                                        value="{{ survey.PIC_name }}" style="background-color: white;"
+                                                        disabled>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Email</label>
-                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}"
+                                                        style="background-color: white;" disabled>
                                                 </div>
                                             </div>
 
@@ -616,8 +622,9 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
-                                            placeholder="Search title, description or PIC name" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}"
+                                            type="search" placeholder="Search title, description or PIC name"
+                                            aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -626,33 +633,26 @@
                             <div id="accordion-{{ course.code }}" class="accordion">
 
                                 {% for survey in survey_list %}
-                                {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True %}
+                                {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True and survey.expiry_date != current_date %}
                                 <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
-                                        <!-- <h6 class="mb-0">
-                                            <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                aria-expanded="true"
-                                                aria-controls="collapse{{ survey.id }}">{{ survey.title }}</span>
-
-                                            <a class="float-right" href="{{ survey.link }}">Link to Survey Form</a>
-                                        </h6> -->
-
                                         <div class="row justify-content-between">
                                             <div class="col-md-6">
-                                                <h6 class="mb-0">
-                                                    <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                        aria-expanded="true" aria-controls="collapse{{ survey.id }}"
-                                                        class="survey_title">{{ survey.title }}</span>
+                                                <h6 class="mb-0" data-toggle="collapse"
+                                                    data-target="#collapse{{ survey.id }}" aria-expanded="true"
+                                                    aria-controls="collapse{{ survey.id }}">
 
-                                                    <!-- <a type="submit" class="float-right" href="{% url 'home' %}"><i class="fab fa-whatsapp fa-lg"></i></a> -->
+                                                    <span class="survey_title">{{ survey.title }}</span>
+                                                    <small class="form-text text-muted">Due on
+                                                        {{ survey.expiry_date }}</small>
 
                                                 </h6>
                                             </div>
 
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <a target="_blank" href="{{ survey.link }}">Survey Link</a>
                                             </div>
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <div class="dropdown">
                                                     <a role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
@@ -703,11 +703,14 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Name</label>
-                                                    <input type="text" class="form-control PIC_name" value="{{ survey.PIC_name }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control PIC_name"
+                                                        value="{{ survey.PIC_name }}" style="background-color: white;"
+                                                        disabled>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Email</label>
-                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}"
+                                                        style="background-color: white;" disabled>
                                                 </div>
                                             </div>
 
@@ -734,8 +737,9 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
-                                            placeholder="Search title, description or PIC name" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}"
+                                            type="search" placeholder="Search title, description or PIC name"
+                                            aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -744,33 +748,26 @@
                             <div id="accordion-{{ course.code }}" class="accordion">
 
                                 {% for survey in survey_list %}
-                                {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True %}
+                                {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True and survey.expiry_date != current_date %}
                                 <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
-                                        <!-- <h6 class="mb-0">
-                                            <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                aria-expanded="true"
-                                                aria-controls="collapse{{ survey.id }}">{{ survey.title }}</span>
-
-                                            <a class="float-right" href="{{ survey.link }}">Link to Survey Form</a>
-                                        </h6> -->
-
                                         <div class="row justify-content-between">
                                             <div class="col-md-6">
-                                                <h6 class="mb-0">
-                                                    <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
-                                                        aria-expanded="true" aria-controls="collapse{{ survey.id }}"
-                                                        class="survey_title">{{ survey.title }}</span>
+                                                <h6 class="mb-0" data-toggle="collapse"
+                                                    data-target="#collapse{{ survey.id }}" aria-expanded="true"
+                                                    aria-controls="collapse{{ survey.id }}">
 
-                                                    <!-- <a type="submit" class="float-right" href="{% url 'home' %}"><i class="fab fa-whatsapp fa-lg"></i></a> -->
+                                                    <span class="survey_title">{{ survey.title }}</span>
+                                                    <small class="form-text text-muted">Due on
+                                                        {{ survey.expiry_date }}</small>
 
                                                 </h6>
                                             </div>
 
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <a target="_blank" href="{{ survey.link }}">Survey Link</a>
                                             </div>
-                                            <div class="col-auto">
+                                            <div class="col-auto my-auto">
                                                 <div class="dropdown">
                                                     <a role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
@@ -821,11 +818,14 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Name</label>
-                                                    <input type="text" class="form-control PIC_name" value="{{ survey.PIC_name }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control PIC_name"
+                                                        value="{{ survey.PIC_name }}" style="background-color: white;"
+                                                        disabled>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label>PIC Email</label>
-                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}" style="background-color: white;" disabled>
+                                                    <input type="text" class="form-control" value="{{ survey.PIC_email }}"
+                                                        style="background-color: white;" disabled>
                                                 </div>
                                             </div>
 
@@ -945,6 +945,14 @@
                             required="required">
                         <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         <div class="invalid-feedback">Please enter the survey PIC/representative's email.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Expiry Date</label>
+                        <input name="expiry_date" id="expiry-date" type="date" class="form-control">
+                        <small class="form-text text-muted">If not selected, default expiry date for survey form is 1
+                            month from date of application</small>
+                        <!-- <div class="invalid-feedback">Please enter the survey PIC/representative's email.</div> -->
                     </div>
 
                     <div class="alert alert-dark" role="alert">

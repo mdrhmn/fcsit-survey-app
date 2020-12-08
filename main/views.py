@@ -3,12 +3,13 @@ import re
 from .models import *
 from django.contrib import messages
 import urllib.parse
+import datetime
 from bs4 import BeautifulSoup
 from markdown import markdown
 # Create your views here.
 
 def home(request):
-
+    
     if request.method == 'POST':
         # regex = re.compile('[@!#$%^&*()<>?/\|}{~:]')
         title = request.POST['title'].strip()
@@ -19,6 +20,11 @@ def home(request):
         PIC_name = request.POST['PIC_name']
         PIC_email = request.POST['PIC_email']
 
+        if request.POST.get('expiry_date') != None and request.POST.get('expiry_date') != "" :
+            expiry_date = request.POST['expiry_date']
+        else:
+            expiry_date = datetime.date.today() + datetime.timedelta(days=30)
+
         new_survey = Survey(
             title=title,
             description=description,
@@ -27,6 +33,7 @@ def home(request):
             link=link,
             PIC_name=PIC_name,
             PIC_email=PIC_email,
+            expiry_date=expiry_date,
         )
 
         # Save ticket changes
@@ -38,6 +45,7 @@ def home(request):
         return redirect('home')
 
     context = {
+        'current_date': datetime.date.today(),
         'survey_list': Survey.objects.all(),
         'course_list': Course.objects.all(),
         'y1_course_list': Course.objects.filter(year__year=1),
