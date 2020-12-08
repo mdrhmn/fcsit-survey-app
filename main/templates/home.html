@@ -68,11 +68,11 @@
                     <ul class="nav nav-tabs">
                         {% for course in y1_course_list %}
                         {% if course.year.year == 1 and forloop.first %}
-                        <li class="nav-item">
+                        <li class="nav-item" data-toggle="tooltip" data-placement="top" title="{{ course.name }}">
                             <a class="nav-link active" data-toggle="tab" href="#y1-{{ course.code }}">{{ course.code }}</a>
                         </li>
                         {% elif course.year.year == 1 %}
-                        <li class="nav-item">
+                        <li class="nav-item" data-toggle="tooltip" data-placement="top" title="{{ course.name }}">
                             <a class="nav-link" data-toggle="tab" href="#y1-{{ course.code }}">{{ course.code }}</a>
                         </li>
                         <!-- <li class="nav-item">
@@ -324,11 +324,11 @@
                     <ul class="nav nav-tabs">
                         {% for course in y2_course_list %}
                         {% if course.year.year == 2 and forloop.first %}
-                        <li class="nav-item">
+                        <li class="nav-item" data-toggle="tooltip" data-placement="top" title="{{ course.name }}">
                             <a class="nav-link active" data-toggle="tab" href="#y2-{{ course.code }}">{{ course.code }}</a>
                         </li>
                         {% elif course.year.year == 2 %}
-                        <li class="nav-item">
+                        <li class="nav-item" data-toggle="tooltip" data-placement="top" title="{{ course.name }}">
                             <a class="nav-link" data-toggle="tab" href="#y2-{{ course.code }}">{{ course.code }}</a>
                         </li>
                         <!-- <li class="nav-item">
@@ -593,11 +593,11 @@
                     <ul class="nav nav-tabs">
                         {% for course in y3_course_list %}
                         {% if course.year.year == 3 and forloop.first %}
-                        <li class="nav-item">
+                        <li class="nav-item" data-toggle="tooltip" data-placement="top" title="{{ course.name }}">
                             <a class="nav-link active" data-toggle="tab" href="#y3-{{ course.code }}">{{ course.code }}</a>
                         </li>
                         {% elif course.year.year == 3 %}
-                        <li class="nav-item">
+                        <li class="nav-item" data-toggle="tooltip" data-placement="top" title="{{ course.name }}">
                             <a class="nav-link" data-toggle="tab" href="#y3-{{ course.code }}">{{ course.code }}</a>
                         </li>
                         {% endif %}
