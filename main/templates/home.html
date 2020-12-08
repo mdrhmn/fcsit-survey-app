@@ -132,22 +132,26 @@
                                                         aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-h"></i>
                                                     </a>
-                                                    <form method="POST" action="{% url 'whatsapp_api' %}">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" name="survey_link" value="{{ survey.link }}">
-                                                        <input type="hidden" name="title" value="{{ survey.title }}">
-                                                        <input type="hidden" name="description"
-                                                            value="{{ survey.description }}">
 
-                                                        <div class="dropdown-menu justify-content-center"
-                                                            aria-labelledby="dropdownMenuLink">
+                                                    <div class="dropdown-menu justify-content-center"
+                                                        aria-labelledby="dropdownMenuLink">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
-                                                            <!-- <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a> -->
-                                                        </div>
-                                                    </form>
+                                                        </form>
+
+                                                        <a class="dropdown-item"
+                                                            href="
+                                                            mailto:student_info-list@siswa.um.edu.my,fsktm_student-list@um.edu.my">Share to
+                                                            <i class="far fa-envelope fa-lg"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,22 +217,25 @@
                                                         aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-h"></i>
                                                     </a>
-                                                    <form method="POST" action="{% url 'whatsapp_api' %}">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" name="survey_link" value="{{ survey.link }}">
-                                                        <input type="hidden" name="title" value="{{ survey.title }}">
-                                                        <input type="hidden" name="description"
-                                                            value="{{ survey.description }}">
-
-                                                        <div class="dropdown-menu justify-content-center"
-                                                            aria-labelledby="dropdownMenuLink">
+                                                    <div class="dropdown-menu justify-content-center"
+                                                        aria-labelledby="dropdownMenuLink">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
-                                                            <!-- <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a> -->
-                                                        </div>
-                                                    </form>
+                                                        </form>
+
+                                                        <a class="dropdown-item"
+                                                            href="
+                                                            mailto:student_info-list@siswa.um.edu.my,fsktm_student-list@um.edu.my">Share to
+                                                            <i class="far fa-envelope fa-lg"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -337,23 +344,25 @@
                                                         aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-h"></i>
                                                     </a>
-                                                    <form method="POST" action="{% url 'whatsapp_api' %}">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" name="survey_link" value="{{ survey.link }}">
-                                                        <input type="hidden" name="title" value="{{ survey.title }}">
-                                                        <input type="hidden" name="description"
-                                                            value="{{ survey.description }}">
-
-
-                                                        <div class="dropdown-menu justify-content-center"
-                                                            aria-labelledby="dropdownMenuLink">
+                                                    <div class="dropdown-menu justify-content-center"
+                                                        aria-labelledby="dropdownMenuLink">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
-                                                            <!-- <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a> -->
-                                                        </div>
-                                                    </form>
+                                                        </form>
+
+                                                        <a class="dropdown-item"
+                                                            href="
+                                                            mailto:student_info-list@siswa.um.edu.my,fsktm_student-list@um.edu.my">Share to
+                                                            <i class="far fa-envelope fa-lg"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -427,23 +436,25 @@
                                                         aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-h"></i>
                                                     </a>
-                                                    <form method="POST" action="{% url 'whatsapp_api' %}">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" name="survey_link" value="{{ survey.link }}">
-                                                        <input type="hidden" name="title" value="{{ survey.title }}">
-                                                        <input type="hidden" name="description"
-                                                            value="{{ survey.description }}">
-
-
-                                                        <div class="dropdown-menu justify-content-center"
-                                                            aria-labelledby="dropdownMenuLink">
+                                                    <div class="dropdown-menu justify-content-center"
+                                                        aria-labelledby="dropdownMenuLink">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
-                                                            <!-- <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a> -->
-                                                        </div>
-                                                    </form>
+                                                        </form>
+
+                                                        <a class="dropdown-item"
+                                                            href="
+                                                            mailto:student_info-list@siswa.um.edu.my,fsktm_student-list@um.edu.my">Share to
+                                                            <i class="far fa-envelope fa-lg"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -544,23 +555,25 @@
                                                         aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-h"></i>
                                                     </a>
-                                                    <form method="POST" action="{% url 'whatsapp_api' %}">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" name="survey_link" value="{{ survey.link }}">
-                                                        <input type="hidden" name="title" value="{{ survey.title }}">
-                                                        <input type="hidden" name="description"
-                                                            value="{{ survey.description }}">
-
-
-                                                        <div class="dropdown-menu justify-content-center"
-                                                            aria-labelledby="dropdownMenuLink">
+                                                    <div class="dropdown-menu justify-content-center"
+                                                        aria-labelledby="dropdownMenuLink">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
-                                                            <!-- <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a> -->
-                                                        </div>
-                                                    </form>
+                                                        </form>
+
+                                                        <a class="dropdown-item"
+                                                            href="
+                                                            mailto:student_info-list@siswa.um.edu.my,fsktm_student-list@um.edu.my">Share to
+                                                            <i class="far fa-envelope fa-lg"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -634,23 +647,25 @@
                                                         aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-h"></i>
                                                     </a>
-                                                    <form method="POST" action="{% url 'whatsapp_api' %}">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" name="survey_link" value="{{ survey.link }}">
-                                                        <input type="hidden" name="title" value="{{ survey.title }}">
-                                                        <input type="hidden" name="description"
-                                                            value="{{ survey.description }}">
-
-
-                                                        <div class="dropdown-menu justify-content-center"
-                                                            aria-labelledby="dropdownMenuLink">
+                                                    <div class="dropdown-menu justify-content-center"
+                                                        aria-labelledby="dropdownMenuLink">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
-                                                            <!-- <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a> -->
-                                                        </div>
-                                                    </form>
+                                                        </form>
+
+                                                        <a class="dropdown-item"
+                                                            href="
+                                                            mailto:student_info-list@siswa.um.edu.my,fsktm_student-list@um.edu.my">Share to
+                                                            <i class="far fa-envelope fa-lg"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
