@@ -22,3 +22,7 @@
 .note-editor.note-frame {
     display: block!important;
 }
+
+.accordion>.card {
+    overflow: visible;
+}
