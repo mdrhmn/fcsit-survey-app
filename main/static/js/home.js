@@ -75,19 +75,22 @@ $(document).ready(function () {
 
     $(".accordion_search_bar").on("keypress click input", function () {
         let search_id = $(this).attr('id');
-        console.log(search_id)
+
         let input = $(this).val();
         input = input.toLowerCase();
-        let x = $('.card.' + search_id + ' span.survey_title') // document.getElementsByClassName("survey_title") // document.getElementsByClassName('survey_title')
-        let y = document.getElementsByClassName('summernote');
-        let z = document.getElementsByClassName('PIC_name')
+
+        // console.log('phenomena of staying up late among fsktm students'.includes(input))
+        // console.log('financial impact of covid -19 on um students'.includes(input))
+
+        let x = $('.card.' + search_id + ' span.survey_title') // document.getElementsByClassName("survey_title")
+        let y = $('.card.' + search_id + ' textarea.summernote') // document.getElementsByClassName('summernote')
+        let z = $('.card.' + search_id + ' input.PIC_name') // document.getElementsByClassName('PIC_name')
 
         for (i = 0; i < x.length; i++) {
             if (!x[i].innerHTML.toLowerCase().includes(input) && !y[i].innerHTML.toLowerCase().includes(input) && !z[i].value.toLowerCase().includes(input)) {
                 // console.log(x[i].innerHTML.toLowerCase());
                 // console.log(y[i].innerHTML.toLowerCase())
                 // console.log(z[i].innerHTML.toLowerCase())
-                // console.log('---' + i)
                 // console.log(x[i].parentNode.parentNode.parentNode.parentNode.parentNode.id)
                 $("#" + x[i].parentNode.parentNode.parentNode.parentNode.parentNode.id).hide()
             }
@@ -95,7 +98,7 @@ $(document).ready(function () {
                 // console.log(x[i].innerHTML.toLowerCase())
                 // console.log(y[i].innerHTML.toLowerCase())
                 // console.log(z[i].innerHTML.toLowerCase())
-
+                // console.log(x[i].parentNode.parentNode.parentNode.parentNode.parentNode.id)
                 $("#" + x[i].parentNode.parentNode.parentNode.parentNode.parentNode.id).show()
             }
         }
