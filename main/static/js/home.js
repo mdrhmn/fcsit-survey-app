@@ -68,8 +68,57 @@ $(document).ready(function () {
         placeholder: '',
 
     });
+
     $("#survey-description-main .note-resizebar").removeClass("note-resizebar")
-    $('#survey-description-main .note-editable').attr('contenteditable', false);  
+    $('#survey-description-main .note-editable').attr('contenteditable', false);
+
+    // $(".accordion_search_bar").on("keypress click input", function () {
+    //     // var val = $(this).val();
+    //     // if (val.length) {
+    //     //     $(".accordion .card").hide().filter(function () {
+    //     //         return $('.card-header', this).text().toLowerCase().indexOf(val
+    //     //             .toLowerCase()) > -1;
+    //     //     }).show();
+    //     // } else {
+    //     //     $(".accordion .card").show();
+    //     //     $(".note-editor.note-frame").css("display", "block!important");
+    //     // }
+    //     var val = $(this).val();
+
+    //     if (val.length) {
+    //         console.log($(this).attr('id'))
+    //         $(".accordion .card").hide().filter(function () {
+    //             return $('.card-body', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
+    //         }).show();
+    //     }
+    //     else {
+    //         $(".accordion .card").show();
+    //         $(".note-editor.note-frame").css("display", "block!important");
+
+    //     }
 
 
+    // });
+
+    $(".accordion_search_bar").on("keypress click input", function () {
+
+        let input = $(this).val();
+        input = input.toLowerCase();
+        let x = document.getElementsByClassName('survey_title');
+        let y = document.getElementsByClassName('summernote');
+
+        for (i = 0; i < x.length; i++) {
+            if (!x[i].innerHTML.toLowerCase().includes(input) && !y[i].innerHTML.toLowerCase().includes(input)) {
+                // console.log(x[i].innerHTML.toLowerCase());
+                // console.log(y[i].innerHTML.toLowerCase())
+                $("#" + x[i].parentNode.parentNode.parentNode.parentNode.parentNode.id).hide()
+            }
+            else {
+                console.log(y[i].innerHTML.toLowerCase())
+                // console.log(x[i].innerHTML.toLowerCase())
+                // console.log(y[i].innerHTML.toLowerCase())
+                $("#" + x[i].parentNode.parentNode.parentNode.parentNode.parentNode.id).show()
+            }
+        }
+    });
 });
