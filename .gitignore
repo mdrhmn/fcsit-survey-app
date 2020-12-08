@@ -11,8 +11,6 @@ Thumbs.db
 .vscode/
 venv/
 __pycache__/
-migrations/
-main/migrations
 .env
 db.sqlite3
 staticfiles/
