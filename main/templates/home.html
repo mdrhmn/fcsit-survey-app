@@ -93,7 +93,7 @@
                             <br>
                             <h5>{{ course.name }}</h5>
                             <br>
-                            <div id="accordion">
+                            <div id="accordion-{{ course.code }}">
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 1 and survey.course_code.code == course.code and survey.approved == True %}
@@ -143,7 +143,7 @@
                                     </div>
 
                                     <div id="collapse{{ survey.id }}" class="collapse"
-                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
+                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion-{{ course.code }}">
                                         <div class="card-body" id="survey-description-main">
                                             <textarea class="summernote" name="description" rows="7"
                                                 placeholder="Enter description" required
@@ -162,7 +162,7 @@
                             <br>
                             <h5>{{ course.name }}</h5>
                             <br>
-                            <div id="accordion">
+                            <div id="accordion-{{ course.code }}">
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 1 and survey.course_code.code == course.code and survey.approved == True %}
@@ -212,7 +212,7 @@
                                     </div>
 
                                     <div id="collapse{{ survey.id }}" class="collapse"
-                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
+                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion-{{ course.code }}">
                                         <div class="card-body" id="survey-description-main">
                                             <textarea class="summernote" name="description" rows="7"
                                                 placeholder="Enter description" required
@@ -266,7 +266,7 @@
                             <br>
                             <h5>{{ course.name }}</h5>
                             <br>
-                            <div id="accordion">
+                            <div id="accordion-{{ course.code }}">
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 2 and survey.course_code.code == course.code and survey.approved == True %}
@@ -325,7 +325,7 @@
                                     </div>
 
                                     <div id="collapse{{ survey.id }}" class="collapse"
-                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
+                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion-{{ course.code }}">
                                         <div class="card-body" id="survey-description-main">
                                             <textarea class="summernote" name="description"
                                                 rows="7" placeholder="Enter description" required
@@ -344,7 +344,7 @@
                             <br>
                             <h5>{{ course.name }}</h5>
                             <br>
-                            <div id="accordion">
+                            <div id="accordion-{{ course.code }}">
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 2 and survey.course_code.code == course.code and survey.approved == True %}
@@ -403,7 +403,7 @@
                                     </div>
 
                                     <div id="collapse{{ survey.id }}" class="collapse"
-                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
+                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion-{{ course.code }}">
                                         <div class="card-body" id="survey-description-main">
                                             <textarea class="summernote" name="description"
                                                 rows="7" placeholder="Enter description" required
@@ -449,7 +449,7 @@
                             <br>
                             <h5>{{ course.name }}</h5>
                             <br>
-                            <div id="accordion">
+                            <div id="accordion-{{ course.code }}">
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True %}
@@ -508,7 +508,7 @@
                                     </div>
 
                                     <div id="collapse{{ survey.id }}" class="collapse"
-                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
+                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion-{{ course.code }}">
                                         <div class="card-body" id="survey-description-main">
                                             <textarea class="summernote" name="description"
                                                 rows="7" placeholder="Enter description" required
@@ -527,7 +527,7 @@
                             <br>
                             <h5>{{ course.name }}</h5>
                             <br>
-                            <div id="accordion">
+                            <div id="accordion-{{ course.code }}">
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True %}
@@ -586,7 +586,7 @@
                                     </div>
 
                                     <div id="collapse{{ survey.id }}" class="collapse"
-                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion">
+                                        aria-labelledby="heading{{ survey.id }}" data-parent="#accordion-{{ course.code }}">
                                         <div class="card-body" id="survey-description-main">
                                             <textarea class="summernote" name="description"
                                                 rows="7" placeholder="Enter description" required
