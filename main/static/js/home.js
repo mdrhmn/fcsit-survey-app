@@ -78,9 +78,10 @@ $(document).ready(function () {
         input = input.toLowerCase();
         let x = document.getElementsByClassName('survey_title');
         let y = document.getElementsByClassName('summernote');
+        let z = document.getElementsByClassName('form-control PIC_name')
 
         for (i = 0; i < x.length; i++) {
-            if (!x[i].innerHTML.toLowerCase().includes(input) && !y[i].innerHTML.toLowerCase().includes(input)) {
+            if (!x[i].innerHTML.toLowerCase().includes(input) && !y[i].innerHTML.toLowerCase().includes(input) && !z[i].value.toLowerCase().includes(input)) {
                 // console.log(x[i].innerHTML.toLowerCase());
                 // console.log(y[i].innerHTML.toLowerCase())
                 // console.log(z[i].innerHTML.toLowerCase())
