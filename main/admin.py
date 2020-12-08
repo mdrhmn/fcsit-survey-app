@@ -14,9 +14,13 @@ admin.site.register(Year)
 
 @admin.register(Survey)
 class Survey(DescriptionAdmin):
-    list_display = ('title', 'year', 'course_code', 'link', 'approved')
+    list_display = ('title', 'id', 'year', 'course_code', 'get_course_name', 'link', 'approved')
     list_filter = ('course_code', 'year')
     # ordering = ("district_name",)
+
+    def get_course_name(self, obj):
+        return obj.course_code.name
+    get_course_name.short_description = 'Course Name'  # Renames column head
 
     def get_name(self, obj):
         return obj.title

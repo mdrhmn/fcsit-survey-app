@@ -72,20 +72,23 @@ $(document).ready(function () {
     $("#survey-description-main .note-resizebar").removeClass("note-resizebar")
     $('#survey-description-main .note-editable').attr('contenteditable', false);
 
-    $(".accordion_search_bar").on("keypress click input", function () {
 
+    $(".accordion_search_bar").on("keypress click input", function () {
+        let search_id = $(this).attr('id');
+        console.log(search_id)
         let input = $(this).val();
         input = input.toLowerCase();
-        let x = document.getElementsByClassName('survey_title');
+        let x = $('.card.' + search_id + ' span.survey_title') // document.getElementsByClassName("survey_title") // document.getElementsByClassName('survey_title')
         let y = document.getElementsByClassName('summernote');
-        let z = document.getElementsByClassName('form-control PIC_name')
+        let z = document.getElementsByClassName('PIC_name')
 
         for (i = 0; i < x.length; i++) {
             if (!x[i].innerHTML.toLowerCase().includes(input) && !y[i].innerHTML.toLowerCase().includes(input) && !z[i].value.toLowerCase().includes(input)) {
                 // console.log(x[i].innerHTML.toLowerCase());
                 // console.log(y[i].innerHTML.toLowerCase())
                 // console.log(z[i].innerHTML.toLowerCase())
-
+                // console.log('---' + i)
+                // console.log(x[i].parentNode.parentNode.parentNode.parentNode.parentNode.id)
                 $("#" + x[i].parentNode.parentNode.parentNode.parentNode.parentNode.id).hide()
             }
             else {
@@ -98,3 +101,7 @@ $(document).ready(function () {
         }
     });
 });
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})

@@ -98,8 +98,8 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" type="search"
-                                            placeholder="Search" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
+                                            placeholder="Search title, description or PIC name" aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -109,7 +109,7 @@
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 1 and survey.course_code.code == course.code and survey.approved == True %}
-                                <div class="card" id="{{ survey.id }}">
+                                <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
                                         <div class="row justify-content-between">
                                             <div class="col-md-6">
@@ -208,8 +208,8 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" type="search"
-                                            placeholder="Search" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
+                                            placeholder="Search title, description or PIC name" aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -219,7 +219,7 @@
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 1 and survey.course_code.code == course.code and survey.approved == True %}
-                                <div class="card" id="{{ survey.id }}">
+                                <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
                                         <div class="row justify-content-between">
                                             <div class="col-md-6">
@@ -353,8 +353,8 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" type="search"
-                                            placeholder="Search" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
+                                            placeholder="Search title, description or PIC name" aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -364,7 +364,7 @@
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 2 and survey.course_code.code == course.code and survey.approved == True %}
-                                <div class="card" id="{{ survey.id }}">
+                                <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
                                         <!-- <h6 class="mb-0">
                                             <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
@@ -471,8 +471,8 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" type="search"
-                                            placeholder="Search" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
+                                            placeholder="Search title, description or PIC name" aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -482,7 +482,7 @@
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 2 and survey.course_code.code == course.code and survey.approved == True %}
-                                <div class="card" id="{{ survey.id }}">
+                                <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
                                         <!-- <h6 class="mb-0">
                                             <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
@@ -616,8 +616,8 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" type="search"
-                                            placeholder="Search" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
+                                            placeholder="Search title, description or PIC name" aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -627,7 +627,7 @@
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True %}
-                                <div class="card" id="{{ survey.id }}">
+                                <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
                                         <!-- <h6 class="mb-0">
                                             <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
@@ -734,8 +734,8 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input class="form-control accordion_search_bar" type="search"
-                                            placeholder="Search" aria-label="Search">
+                                        <input class="form-control accordion_search_bar" id="{{ course.code }}" type="search"
+                                            placeholder="Search title, description or PIC name" aria-label="Search">
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -745,7 +745,7 @@
 
                                 {% for survey in survey_list %}
                                 {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True %}
-                                <div class="card" id="{{ survey.id }}">
+                                <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
                                         <!-- <h6 class="mb-0">
                                             <span data-toggle="collapse" data-target="#collapse{{ survey.id }}"
