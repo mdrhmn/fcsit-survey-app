@@ -472,6 +472,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% else %}
+                                {% if forloop.first %}
+                                <p>No surveys available</p>
+                                {% endif %}
                                 {% endif %}
                                 {% endfor %}
 
@@ -863,9 +867,6 @@
                         </div>
                         {% endif %}
                         {% endfor %}
-                        <!-- <div class="tab-pane fade show active" id="y3-c1">This is the content for subtab 3.1.</div>
-                        <div class="tab-pane fade" id="y3-c2">This is the content for subtab 3.2.</div>
-                        <div class="tab-pane fade" id="y3-c3">This is the content for subtab 3.3.</div> -->
                     </div>
                 </div>
             </div>
