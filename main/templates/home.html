@@ -132,10 +132,9 @@
                                                         aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-h"></i>
                                                     </a>
-
                                                     <div class="dropdown-menu justify-content-center"
                                                         aria-labelledby="dropdownMenuLink">
-                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}" target="_blank">
                                                             {% csrf_token %}
                                                             <input type="hidden" name="survey_link"
                                                                 value="{{ survey.link }}">
@@ -145,6 +144,18 @@
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
+                                                        </form>
+
+                                                        <form method="POST" action="{% url 'twitter_api' %}" target="_blank">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
+                                                            <a style="cursor: pointer" class="dropdown-item"
+                                                                onclick="this.closest('form').submit();return false;">Share
+                                                                to <i class="fab fa-twitter"></i></a>
                                                         </form>
 
                                                         <a class="dropdown-item"
@@ -219,7 +230,7 @@
                                                     </a>
                                                     <div class="dropdown-menu justify-content-center"
                                                         aria-labelledby="dropdownMenuLink">
-                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}" target="_blank">
                                                             {% csrf_token %}
                                                             <input type="hidden" name="survey_link"
                                                                 value="{{ survey.link }}">
@@ -229,6 +240,18 @@
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
+                                                        </form>
+
+                                                        <form method="POST" action="{% url 'twitter_api' %}" target="_blank">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
+                                                            <a style="cursor: pointer" class="dropdown-item"
+                                                                onclick="this.closest('form').submit();return false;">Share
+                                                                to <i class="fab fa-twitter"></i></a>
                                                         </form>
 
                                                         <a class="dropdown-item"
@@ -346,7 +369,7 @@
                                                     </a>
                                                     <div class="dropdown-menu justify-content-center"
                                                         aria-labelledby="dropdownMenuLink">
-                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}" target="_blank">
                                                             {% csrf_token %}
                                                             <input type="hidden" name="survey_link"
                                                                 value="{{ survey.link }}">
@@ -356,6 +379,18 @@
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
+                                                        </form>
+
+                                                        <form method="POST" action="{% url 'twitter_api' %}" target="_blank">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
+                                                            <a style="cursor: pointer" class="dropdown-item"
+                                                                onclick="this.closest('form').submit();return false;">Share
+                                                                to <i class="fab fa-twitter"></i></a>
                                                         </form>
 
                                                         <a class="dropdown-item"
@@ -438,7 +473,7 @@
                                                     </a>
                                                     <div class="dropdown-menu justify-content-center"
                                                         aria-labelledby="dropdownMenuLink">
-                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}" target="_blank">
                                                             {% csrf_token %}
                                                             <input type="hidden" name="survey_link"
                                                                 value="{{ survey.link }}">
@@ -448,6 +483,18 @@
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
+                                                        </form>
+
+                                                        <form method="POST" action="{% url 'twitter_api' %}" target="_blank">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
+                                                            <a style="cursor: pointer" class="dropdown-item"
+                                                                onclick="this.closest('form').submit();return false;">Share
+                                                                to <i class="fab fa-twitter"></i></a>
                                                         </form>
 
                                                         <a class="dropdown-item"
@@ -557,7 +604,7 @@
                                                     </a>
                                                     <div class="dropdown-menu justify-content-center"
                                                         aria-labelledby="dropdownMenuLink">
-                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}" target="_blank">
                                                             {% csrf_token %}
                                                             <input type="hidden" name="survey_link"
                                                                 value="{{ survey.link }}">
@@ -567,6 +614,18 @@
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
+                                                        </form>
+
+                                                        <form method="POST" action="{% url 'twitter_api' %}" target="_blank">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
+                                                            <a style="cursor: pointer" class="dropdown-item"
+                                                                onclick="this.closest('form').submit();return false;">Share
+                                                                to <i class="fab fa-twitter"></i></a>
                                                         </form>
 
                                                         <a class="dropdown-item"
@@ -649,7 +708,7 @@
                                                     </a>
                                                     <div class="dropdown-menu justify-content-center"
                                                         aria-labelledby="dropdownMenuLink">
-                                                        <form method="POST" action="{% url 'whatsapp_api' %}">
+                                                        <form method="POST" action="{% url 'whatsapp_api' %}" target="_blank">
                                                             {% csrf_token %}
                                                             <input type="hidden" name="survey_link"
                                                                 value="{{ survey.link }}">
@@ -659,6 +718,18 @@
                                                             <a style="cursor: pointer" class="dropdown-item"
                                                                 onclick="this.closest('form').submit();return false;">Share
                                                                 to <i class="fab fa-whatsapp fa-lg"></i></a>
+                                                        </form>
+
+                                                        <form method="POST" action="{% url 'twitter_api' %}" target="_blank">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="survey_link"
+                                                                value="{{ survey.link }}">
+                                                            <input type="hidden" name="title" value="{{ survey.title }}">
+                                                            <input type="hidden" name="description"
+                                                                value="{{ survey.description }}">
+                                                            <a style="cursor: pointer" class="dropdown-item"
+                                                                onclick="this.closest('form').submit();return false;">Share
+                                                                to <i class="fab fa-twitter"></i></a>
                                                         </form>
 
                                                         <a class="dropdown-item"

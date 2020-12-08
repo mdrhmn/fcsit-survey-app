@@ -68,3 +68,22 @@ def whatsapp_api(request):
     link = urllib.parse.quote(text)
     return redirect('https://api.whatsapp.com/send?phone=&text=' + link)
     
+def twitter_api(request):
+    markdown_string = request.POST['title'] + '\n\n' + request.POST['description'] + '\n\n' + request.POST['survey_link']
+
+    # md -> html -> text since BeautifulSoup can extract text cleanly
+    html = markdown(markdown_string)
+
+    # remove code snippets
+    html = re.sub(r'<pre>(.*?)</pre>', ' ', html)
+    html = re.sub(r'<code>(.*?)</code >', ' ', html)
+
+    # extract text
+    soup = BeautifulSoup(html, "html.parser")
+    text = ''.join(soup.findAll(text=True))
+
+    # print(text)
+
+    link = urllib.parse.quote(text)
+    return redirect('https://twitter.com/intent/tweet?text=' + link)
+    
