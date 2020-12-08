@@ -35,6 +35,8 @@ def home(request):
         messages.success(
                 request, "Survey form application successful. Your form will appear on the website upon approval.")
 
+        return redirect('home')
+
     context = {
         'survey_list': Survey.objects.all(),
         'course_list': Course.objects.all(),
