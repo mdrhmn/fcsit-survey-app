@@ -108,7 +108,7 @@ Right at the top, users can clearly see the call-to-action (CTA) 'Add my survey'
 [INSERT GIF HERE]
 
 Survey forms are also **unapproved by default**, and will **only appear on the web app** after **approval from the administrator**. This is to ensure that each survey form is **thoroughly inspected** and to **avoid spams or malicious contents**.
-<br>
+<br><br>
 
 ### 2. WYSIWYG/Rich Text Editor Integration
 
@@ -119,21 +119,21 @@ Although incredibly simple at its core, the web app supports a wide range of fun
 3. **Image attachment** (yes, you can attach photos too!)
 
 [INSERT GIF HERE]
-<br>
+<br><br>
 
 ### 3. Dependent Dropdowns
 
 Users do not have to worry about searching for their courses, as the **Year and Course Code dropdowns are inter-linked**. Selecting the year will **automatically filter the courses available** in that year.
 
 [INSERT GIF HERE]
-<br>
+<br><br>
 
 ### 4. Expiry Date
 
 One distinct feature for this web app is that users can **set the expiry date** for their survey forms, giving them the ability to restrict how long they want their survey forms to be displayed in the web app. If users are uncertain on the expiry date, the system will **automatically set the expiry date** to **1 month from date of application**. **Credits to Faidz for suggesting this feature to me!**
 
 [INSERT GIF/PHOTO HERE]
-<br>
+<br><br>
 
 ### 5. User-friendly Navigations
 
@@ -166,6 +166,7 @@ This is my most favourite feature of all! When users **click on the ellipsis '..
     Last but not least, users can also share their survey forms via email. By default, the web app will include **student-info (student_info-list@siswa.um.edu.my)** and **FSKTM STUDENT - UG (fsktm_student-list@um.edu.my)** as recipients, and **attach** the **survey's title**, **description** and **link** as subject and body respectively. 
 
     [INSERT GIF/PHOTO HERE]
+<br><br>
 
 ### 7. Admin Dashboard
 
