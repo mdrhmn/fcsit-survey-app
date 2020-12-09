@@ -143,7 +143,7 @@ Under each course tab, there is the **course title** as well as a **search bar**
 
 The survey forms are displayed in **Bootstrap accordion/collapse**. The panel header consists of the **survey title**, **expiry date**, **link** and **share dropdown**. Clicking the link will open a new tab, which will redirect you to the survey form itself.
 
-Users can click on each accordion panel to expand its content, which contains the **PIC name**, **email** and **description**. You can only expand the content of the survey panel **one at a time** to ensure that the accordion is not cluttered.
+Users can click on each accordion panel to expand its content, which contains the **PIC name**, **email** and **description**. You can only expand the content of the survey panel **one at a time** to ensure that the accordion is not cluttered.<br><br>
 
 ### 6. Share to Various platforms
 
