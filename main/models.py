@@ -15,7 +15,7 @@ class Survey(models.Model):
     approved = models.BooleanField(default=False)
     expiry_date = models.DateField(default=datetime.date.today() + datetime.timedelta(days=30))
     expired = models.BooleanField(default=False)
-    date_applied = models.DateField(default=timezone.now().date())
+    date_applied = models.DateField(default=timezone.now)
 
     def __str__(self):
         return self.title
