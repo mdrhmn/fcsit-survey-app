@@ -118,14 +118,14 @@ Although incredibly simple at its core, the web app supports a wide range of fun
 2. **Text-formatting** (e.g. font-size, line-height, paragraph)
 3. **Image attachment** (yes, you can attach photos too!)
 
-[INSERT GIF HERE]
+![hippo](https://media.giphy.com/media/7jpmYafnK6EfOUQv4h/giphy.gif)
 <br><br>
 
 ### 3. Dependent Dropdowns
 
 Users do not have to worry about searching for their courses, as the **Year and Course Code dropdowns are inter-linked**. Selecting the year will **automatically filter the courses available** in that year.
 
-[INSERT GIF HERE]
+![hippo](https://media.giphy.com/media/QLD8uIlJZqMvxl1wI0/giphy.gif)
 <br><br>
 
 ### 4. Expiry Date
@@ -139,11 +139,17 @@ One distinct feature for this web app is that users can **set the expiry date** 
 
 Using only simple Bootstrap tabs and pills navigation, users can **browse the surveys easily** with only a few clicks! The left-side pills refer to the **years of study** while the upper-tabs refer to the **individual courses** for each year. Users can also hover over each course code tab to see the course name (handy for those who wants to know the course name without having to click the tab itself).
 
+![hippo](https://giphy.com/gifs/tk7RUAKxZrWNTW37rL/html5)
+
 Under each course tab, there is the **course title** as well as a **search bar**, which users can use to **search for surveys** based on their **title**, **description** and/or **PIC name**. The survey panels will adjust dynamically based on the search input. **Credits to Izzah for suggesting this feature to me!**
+
+[INSERT GIF/PHOTO HERE]
 
 The survey forms are displayed in **Bootstrap accordion/collapse**. The panel header consists of the **survey title**, **expiry date**, **link** and **share dropdown**. Clicking the link will open a new tab, which will redirect you to the survey form itself.
 
 Users can click on each accordion panel to expand its content, which contains the **PIC name**, **email** and **description**. You can only expand the content of the survey panel **one at a time** to ensure that the accordion is not cluttered.<br><br>
+
+[INSERT GIF/PHOTO HERE]
 
 ### 6. Share to Various platforms
 
