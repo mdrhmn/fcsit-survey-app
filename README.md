@@ -179,9 +179,11 @@ This last feature is strictly for **administrators access only**. With Django's 
 
 ## Conclusion
 
-This has been such a rewarding experience for me. I developed and deployed the whole web app in **less than half a day**, from my first ever commit on **Monday, Dec 07 2020 at 14:38:27** until my first successful deployment of the working prototype on **Monday, Dec 07 2020 at 11:39PM**. This is only the *second* web app developed entirely by me, so it is undeniably a personal achievement.
+This has been such a rewarding experience for me. I developed and deployed the whole web app in **less than half a day**, from my first ever commit on **Monday, Dec 07 2020 at 14:38:27** until my first successful deployment of the working prototype on **Monday, Dec 07 2020 at 11:39PM** (*thanks, Git Graph!*). This is only the *second* web app developed entirely by me, so it is undeniably a personal achievement.
 
-That being said, I hope that this web app will be beneficial to the students of FCSIT and serve its purpose, as well as motivate others to come up with creative ways to 
+That being said, I hope that this web app will be beneficial to the students of FCSIT and serve its purpose, as well as motivate others to come up with creative ways and make use of their technical prowess to solve real-life problems and contribute back to society.
+
+For any enquiries and bug reports, please contact me at **mdrhmn99@gmail.com**.
 
 ## References
 
