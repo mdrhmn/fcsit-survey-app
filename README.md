@@ -47,9 +47,9 @@ There are essentially **3 key reasons** that motivated me to do this side projec
 
 Huge shoutouts to the following groups of people for supporting this mini side project of mine:
 
-1. Jason Chao (my incredibly supportive internship supervisor)
-2. Izzah Gani (the first person whom I pitched the idea to at 1AM)
-3. Faidz Hazirah, Nadia Jamhari (my earliest beta testers)
+1. **Jason Chao** (my incredibly supportive internship supervisor)
+2. **Izzah Gani** (the first person whom I pitched the idea to at 1AM)
+3. **Faidz Hazirah**, **Nadia Jamhari** (my earliest beta testers)
 
 <hr>
 
