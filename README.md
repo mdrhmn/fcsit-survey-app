@@ -88,12 +88,14 @@ Run the following command inside your virtual environment:
     $ pip install -r requirements.txt # (Python 2)
     $ pip3 install -r requirements.txt # (Python 3)
     ``` 
+<hr>
 
 ## Deployed Web Application
 
 Click **[here](https://fcsit-survey-app.herokuapp.com/)** to view the **deployed web app**!
 
 Click **[here](https://github.com/mdrhmn/fcsit-survey-app)** to visit the **GitHub repository**!
+<hr>
 
 ## Features
 
