@@ -101,7 +101,7 @@ Click **[here](https://github.com/mdrhmn/fcsit-survey-app)** to visit the **GitH
 
 ### 1. Add Your Surveys!
 
-This simple web app is — well — *incredibly simple*. It is a single-page application (SPA) so users will not have to worry about navigations etc. It
+This simple web app is — well — *incredibly simple*. It is a **single-page application (SPA)** so users will not have to worry about navigations etc.
 
 Right at the top, users can clearly see the call-to-action (CTA) 'Add my survey' button, which when clicked, will **open a modal form** that allows them to **fill in the details of their surveys**:
 
@@ -130,14 +130,29 @@ Users do not have to worry about searching for their courses, as the **Year and 
 
 ### 4. Expiry Date
 
-One distinct feature for this web app is that users can **set the expiry date** for their survey forms, giving them the ability to restrict how long they want their survey forms to be displayed in the web app. If users are uncertain on the expiry date, the system will **automatically set the expiry date** to **1 month from date of application**.
+One distinct feature for this web app is that users can **set the expiry date** for their survey forms, giving them the ability to restrict how long they want their survey forms to be displayed in the web app. If users are uncertain on the expiry date, the system will **automatically set the expiry date** to **1 month from date of application**. **Credits to Faidz for suggesting this feature to me!**
 
 [INSERT GIF/PHOTO HERE]
 <br>
 
 ### 5. User-friendly Navigations
 
-Using only simple Bootstrap tabs and pills navigation, users can **browse the surveys easily** with only a few clicks! The left-side pills refer to the years of study while the up
+Using only simple Bootstrap tabs and pills navigation, users can **browse the surveys easily** with only a few clicks! The left-side pills refer to the **years of study** while the upper-tabs refer to the **individual courses** for each year. Users can also hover over each course code tab to see the course name (handy for those who wants to know the course name without having to click the tab itself).
+
+Under each course tab, there is the **course title** as well as a **search bar**, which users can use to **search for surveys** based on their **title**, **description** and/or **PIC name**. The survey panels will adjust dynamically based on the search input. **Credits to Izzah for suggesting this feature to me!**
+
+The survey forms are displayed in **Bootstrap accordion/collapse**. The panel header consists of the **survey title**, **expiry date**, **link** and **share dropdown**. Clicking the link will open a new tab, which will redirect you to the survey form itself.
+
+Users can click on each accordion panel to expand its content, which contains the **PIC name**, **email** and **description**. You can only expand the content of the survey panel **one at a time** to ensure that the accordion is not cluttered.
+
+### 6. Share to Various platforms
+
+This is my most favourite feature of all! When users **click on the ellipsis '...' button** at the right side of the survey panel, a **dropdown menu** will appear, listing the 3 ways to share their survey forms:
+
+    1. **Share to WhatsApp**
+    2. **Share to Twitter**
+    3. **Share to email**
+
 
 ## References
 
