@@ -20,11 +20,11 @@ This is a simple web application built to **compile all FCSIT survey forms** for
 
 ### Inspirations
 
-There are essentially **2 key reasons** that motivated me to do this side project:
+There are essentially **3 key reasons** that motivated me to do this side project:
 
 1. **'*What I wish I knew as a 1st Year CS student*'** by **Desmond Yeoh**
 
-    On the 5th of December 2020, I attended a short sharing session by one of FCSIT's prominent alumni, Desmond Yeoh. He shared some tips on what students can and should do in their early years of study. One of the recommendations include building your GitHub portfolios such as by developing stuffs that can solve real life problems. He outlined 3 benefits of doing so: **
+    On the 5th of December 2020, I attended a short sharing session by one of FCSIT's prominent alumni, Desmond Yeoh. He shared some tips on what students can and should do in their early years of study. One of the recommendations include building your GitHub portfolios such as by developing stuffs that can solve real life problems. He outlined **3 benefits** of doing so:
 
     * You can flex your resume as interviewers **ALWAYS** ask for GitHub & portfolios
     * You get to **solve your own problems** as well as the **community**
@@ -32,7 +32,11 @@ There are essentially **2 key reasons** that motivated me to do this side projec
 
     Soon after that, I started brainstorming on several ideas on what existing real life issues can I solve as a mini side project. Judging by this GitHub repository and the endless notifications I got from my social media platforms, you know the answer already.
 
-2. **Cement my understanding of Django**
+2. **Improve existing FCSIT FYP Survey web app**
+
+    Full disclaimer: **This idea is not originally mine**, at least at its most fundamentals. Earlier this year, two of my seniors Jia Xiong and Chun Wah developed a **[simple React web app ](https://fcsit-fyp-surveys.herokuapp.com/)** to compile all FYP survey forms. It was not properly advertised (I was among the few who found it lying somewhere inside SiswaMail). Nevertheless, the concept of hosting the survey forms in one place intrigued me, and I decided to expand the idea by collecting not just FYP survey forms, but also for other courses and years as well.
+
+3. **Cement my understanding of Django**
 
     This web app is built almost entirely using **Python's Django back-end framework**. I have been learning and using it extensively for months during my internship. I figured, what better way to actually **put my months worth of skills** in web development to the **test** than to **actually develop my own app**? In addition, I decided to challenge myself further by testing whether I can finish the web app in less than a week, or even a day. Hackathon-style, so to speak.
 
@@ -85,6 +89,18 @@ Click **[here](https://fcsit-survey-app.herokuapp.com/)** to view the **deployed
 Click **[here](https://github.com/mdrhmn/fcsit-survey-app)** to visit the **GitHub repository**!
 
 ## Features
+
+### Add Your Surveys!
+
+This simple web app is — well — *incredibly simple*. It is a single-page application (SPA) so users will not have to worry about navigations etc. It
+
+Right at the top, users can clearly see the call-to-action (CTA) 'Add my survey' button, which when clicked, will **open a modal form** that allows them to **fill in the details of their surveys**:
+
+[INSERT GIF HERE]
+
+### WYSIWYG/Rich Text Editor Integration
+
+Although incredibly simple at its core, the web app supports a wide range of functionalities. Users can easily customise your survey descriptions using basic markdowns (e.g. bold, italic, underline)
 
 
 ## References

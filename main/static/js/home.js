@@ -46,14 +46,14 @@ $(document).ready(function () {
 
         toolbar: [
             ['style', ['style']],
-            ['font', ['bold', 'underline', 'clear']],
+            ['font', ['bold', 'underline', 'italic', 'clear']],
             ['fontname', ['fontname']],
             ['fontsize', ['fontsize']],
             ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
             ['height', ['height']],
             ['table', ['table']],
-            // ['insert', ['link', 'picture', 'video']],
+            ['insert', ['link', 'picture']],
             ['view', ['fullscreen', 'codeview', 'help']],
         ],
     });
