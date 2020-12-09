@@ -14,7 +14,7 @@ admin.site.register(Year)
 
 @admin.register(Survey)
 class Survey(DescriptionAdmin):
-    list_display = ('title', 'id', 'year', 'course_code', 'get_course_name', 'link', 'approved', 'expiry_date', 'expired')
+    list_display = ('title', 'id', 'year', 'course_code', 'get_course_name', 'link', 'approved', 'date_applied', 'expiry_date', 'expired')
     list_filter = ('course_code', 'year')
     # ordering = ("district_name",)
 

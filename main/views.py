@@ -6,10 +6,11 @@ import urllib.parse
 import datetime
 from bs4 import BeautifulSoup
 from markdown import markdown
+from django.utils import timezone
 # Create your views here.
 
 def home(request):
-    
+
     if request.method == 'POST':
         # regex = re.compile('[@!#$%^&*()<>?/\|}{~:]')
         title = request.POST['title'].strip()

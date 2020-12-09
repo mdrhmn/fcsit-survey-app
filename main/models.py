@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 import datetime
 from django.core.validators import MinValueValidator, MaxValueValidator
 # Create your models here.
@@ -14,6 +15,7 @@ class Survey(models.Model):
     approved = models.BooleanField(default=False)
     expiry_date = models.DateField(default=datetime.date.today() + datetime.timedelta(days=30))
     expired = models.BooleanField(default=False)
+    date_applied = models.DateField(default=timezone.now().date())
 
     def __str__(self):
         return self.title
