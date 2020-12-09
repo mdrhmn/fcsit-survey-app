@@ -4,6 +4,8 @@
 
 This is a simple web application built to **compile all FCSIT survey forms** for **faculty courses**. For **usage of FCSIT UM undergraduate students only**.
 
+<br>
+
 ### Problem Statements
 
 1. **Individual survey form sharing leads to spams**
@@ -17,6 +19,8 @@ This is a simple web application built to **compile all FCSIT survey forms** for
 3. **No Single Point of Reference**
     
     Due to the **lack of a single, reliable, user-friendly and easily accessible platform** to host all the survey forms, students understandably have no choice but to share their survey forms in multiple platforms in order to reach as many respondents as possible. Students are also **restricted to the target groups that they can access** (e.g. A first year student could not share their survey forms in sophomore or final year students' groups), further limiting the number of possible respondents.
+
+<br>
 
 ### Inspirations
 
@@ -40,6 +44,8 @@ There are essentially **3 key reasons** that motivated me to do this side projec
 
     This web app is built almost entirely using **Python's Django back-end framework**. I have been learning and using it extensively for months during my internship. I figured, what better way to actually **put my months worth of skills** in web development to the **test** than to **actually develop my own app**? In addition, I decided to challenge myself further by testing whether I can finish the web app in less than a week, or even a day. Hackathon-style, so to speak.
 
+<br>
+
 ### Credits
 
 Huge shoutouts to the following groups of people for supporting this mini side project of mine:
@@ -48,10 +54,14 @@ Huge shoutouts to the following groups of people for supporting this mini side p
 2. Izzah Gani (the first person whom I pitched the idea to at 1AM)
 3. Faidz Hazirah, Nadia Jamhari (my earliest beta testers)
 
+<hr>
+
 ## Technology Stack
 
 ### Front-end
 * Bootstrap 4.5.3
+* Bootstrap-Select 1.13.14
+* Summernote 0.8.18
   
 ### Back-end
 * Django==3.1.4
@@ -90,7 +100,7 @@ Click **[here](https://github.com/mdrhmn/fcsit-survey-app)** to visit the **GitH
 
 ## Features
 
-### Add Your Surveys!
+### 1. Add Your Surveys!
 
 This simple web app is — well — *incredibly simple*. It is a single-page application (SPA) so users will not have to worry about navigations etc. It
 
@@ -98,10 +108,41 @@ Right at the top, users can clearly see the call-to-action (CTA) 'Add my survey'
 
 [INSERT GIF HERE]
 
-### WYSIWYG/Rich Text Editor Integration
+Survey forms are also **unapproved by default**, and will **only appear on the web app** after **approval from the administrator**. This is to ensure that each survey form is **thoroughly inspected** and to **avoid spams or malicious contents**.
 
-Although incredibly simple at its core, the web app supports a wide range of functionalities. Users can easily customise your survey descriptions using basic markdowns (e.g. bold, italic, underline)
+<br>
 
+### 2. WYSIWYG/Rich Text Editor Integration
+
+Although incredibly simple at its core, the web app supports a wide range of functionalities. Users can easily customise your survey descriptions using:
+
+1. **Basic markdowns** (e.g. bold, italic, underline)
+2. **Text-formatting** (e.g. font-size, line-height, paragraph)
+3. **Image attachment** (yes, you can attach photos too!)
+
+[INSERT GIF HERE]
+
+<br>
+
+### 3. Dependent Dropdowns
+
+Users do not have to worry about searching for their courses, as the **Year and Course Code dropdowns are inter-linked**. Selecting the year will **automatically filter the courses available** in that year.
+
+[INSERT GIF HERE]
+
+<br>
+
+### 4. Expiry Date
+
+One distinct feature for this web app is that users can **set the expiry date** for their survey forms, giving them the ability to restrict how long they want their survey forms to be displayed in the web app. If users are uncertain on the expiry date, the system will **automatically set the expiry date** to **1 month from date of application**.
+
+[INSERT GIF/PHOTO HERE]
+
+<br>
+
+### 5. User-friendly Navigations
+
+Using only simple Bootstrap tabs and pills navigation, users can **browse the surveys easily** with only a few clicks! The left-side pills refer to the years of study while the up
 
 ## References
 
