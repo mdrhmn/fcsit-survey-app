@@ -156,19 +156,19 @@ This is my most favourite feature of all! When users **click on the ellipsis '..
 
 1. **Share to WhatsApp**
 
-    Thanks to WhatsApp API, users can forward the survey forms to their WhatsApp contacts/groups. Users will be prompted to open their WhatsApp Web client and select which groups of people to forward the survey to.
+    Thanks to WhatsApp API, users can **forward the survey forms** to their **WhatsApp contacts/groups**. Users will be prompted to open their WhatsApp Web client and select which groups of people to forward the survey to.
 
     ![hippo](https://media.giphy.com/media/pSC4z0dKBXD55emXmw/giphy.gif)
 
 2. **Share to Twitter**
 
-    Twitter's Tweet Web Intent API allows users to also share the survey forms via tweet. Users will be prompted to log into their Twitter account if they haven't before posting the tweet.
+    Twitter's Tweet Web Intent API allows users to also **share the survey forms via tweet**. Users will be prompted to log into their Twitter account if they haven't before posting the tweet.
 
     ![hippo](https://media.giphy.com/media/Y2faW4w3WBdbWcoRav/giphy.gif)
 
 3. **Share to Email**
 
-    Last but not least, users can also share their survey forms via email. By default, the web app will include **student-info (student_info-list@siswa.um.edu.my)** and **FSKTM STUDENT - UG (fsktm_student-list@um.edu.my)** as recipients, and **attach** the **survey's title**, **description** and **link** as subject and body respectively. 
+    Last but not least, users can also **share their survey forms via email**. By default, the web app will include **student-info (student_info-list@siswa.um.edu.my)** and **FSKTM STUDENT - UG (fsktm_student-list@um.edu.my)** as recipients, and **attach** the **survey's title**, **description** and **link** as subject and body respectively. 
 
     ![hippo](https://media.giphy.com/media/L06cgLvmHahWChWtco/giphy.gif)
 <br><br>
@@ -176,6 +176,12 @@ This is my most favourite feature of all! When users **click on the ellipsis '..
 ### 7. Admin Dashboard
 
 This last feature is strictly for **administrators access only**. With Django's built-in admin dashboard, administrators can **directly access the dashboard** by clicking the Admin link at the navigation bar. 
+
+## Conclusion
+
+This has been such a rewarding experience for me. I developed and deployed the whole web app in **less than half a day**, from my first ever commit on **Monday, Dec 07 2020 at 14:38:27** until my first successful deployment of the working prototype on **Monday, Dec 07 2020 at 11:39PM**. This is only the *second* web app developed entirely by me, so it is undeniably a personal achievement.
+
+That being said, I hope that this web app will be beneficial to the students of FCSIT and serve its purpose, as well as motivate others to come up with creative ways to 
 
 ## References
 
