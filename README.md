@@ -131,7 +131,6 @@ Users do not have to worry about searching for their courses, as the **Year and 
 One distinct feature for this web app is that users can **set the expiry date** for their survey forms, giving them the ability to restrict how long they want their survey forms to be displayed in the web app. If users are uncertain on the expiry date, the system will **automatically set the expiry date** to **1 month from date of application**.
 
 [INSERT GIF/PHOTO HERE]
-
 <br>
 
 ### 5. User-friendly Navigations
