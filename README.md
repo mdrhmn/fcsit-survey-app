@@ -3,7 +3,6 @@
 ## Introduction
 
 This is a simple web application built to **compile all FCSIT survey forms** for **faculty courses**. For **usage of FCSIT UM undergraduate students only**.
-
 <br>
 
 ### Problem Statements
@@ -19,7 +18,6 @@ This is a simple web application built to **compile all FCSIT survey forms** for
 3. **No Single Point of Reference**
     
     Due to the **lack of a single, reliable, user-friendly and easily accessible platform** to host all the survey forms, students understandably have no choice but to share their survey forms in multiple platforms in order to reach as many respondents as possible. Students are also **restricted to the target groups that they can access** (e.g. A first year student could not share their survey forms in sophomore or final year students' groups), further limiting the number of possible respondents.
-
 <br>
 
 ### Inspirations
@@ -43,7 +41,6 @@ There are essentially **3 key reasons** that motivated me to do this side projec
 3. **Cement my understanding of Django**
 
     This web app is built almost entirely using **Python's Django back-end framework**. I have been learning and using it extensively for months during my internship. I figured, what better way to actually **put my months worth of skills** in web development to the **test** than to **actually develop my own app**? In addition, I decided to challenge myself further by testing whether I can finish the web app in less than a week, or even a day. Hackathon-style, so to speak.
-
 <br>
 
 ### Credits
@@ -109,7 +106,6 @@ Right at the top, users can clearly see the call-to-action (CTA) 'Add my survey'
 [INSERT GIF HERE]
 
 Survey forms are also **unapproved by default**, and will **only appear on the web app** after **approval from the administrator**. This is to ensure that each survey form is **thoroughly inspected** and to **avoid spams or malicious contents**.
-
 <br>
 
 ### 2. WYSIWYG/Rich Text Editor Integration
@@ -121,7 +117,6 @@ Although incredibly simple at its core, the web app supports a wide range of fun
 3. **Image attachment** (yes, you can attach photos too!)
 
 [INSERT GIF HERE]
-
 <br>
 
 ### 3. Dependent Dropdowns
@@ -129,7 +124,6 @@ Although incredibly simple at its core, the web app supports a wide range of fun
 Users do not have to worry about searching for their courses, as the **Year and Course Code dropdowns are inter-linked**. Selecting the year will **automatically filter the courses available** in that year.
 
 [INSERT GIF HERE]
-
 <br>
 
 ### 4. Expiry Date
@@ -151,3 +145,4 @@ Using only simple Bootstrap tabs and pills navigation, users can **browse the su
 3. https://stackoverflow.com/questions/59332225/hitting-500-error-on-django-with-debug-false-even-with-allowed-hosts
 4. https://stackoverflow.com/questions/6208363/sharing-a-url-with-a-query-string-on-twitter
 5. https://help.heroku.com/GDQ74SU2/django-migrations
+6. 
