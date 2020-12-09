@@ -45,8 +45,26 @@ def home(request):
 
         return redirect('home')
 
+    description_set = Survey.objects.values('id', 'description', 'link')
+
+    for desc in description_set:
+        html = markdown(desc['description'])
+
+        # remove code snippets
+        html = re.sub(r'<pre>(.*?)</pre>', ' ', html)
+        html = re.sub(r'<code>(.*?)</code >', ' ', html)
+
+        # extract text
+        soup = BeautifulSoup(html, "html.parser")
+        text = ''.join(soup.findAll(text=True))
+
+        desc['description'] = text
+
+    description_filtered = description_set
+
     context = {
         'current_date': datetime.date.today(),
+        'description_filtered': description_filtered,
         'survey_list': Survey.objects.all(),
         'course_list': Course.objects.all(),
         'y1_course_list': Course.objects.filter(year__year=1),
