@@ -149,10 +149,27 @@ Users can click on each accordion panel to expand its content, which contains th
 
 This is my most favourite feature of all! When users **click on the ellipsis '...' button** at the right side of the survey panel, a **dropdown menu** will appear, listing the 3 ways to share their survey forms:
 
-    1. **Share to WhatsApp**
-    2. **Share to Twitter**
-    3. **Share to email**
+1. **Share to WhatsApp**
 
+    Thanks to WhatsApp API, users can forward the survey forms to their WhatsApp contacts/groups. Users will be prompted to open their WhatsApp Web client and select which groups of people to forward the survey to.
+
+    [INSERT GIF/PHOTO HERE]
+
+2. **Share to Twitter**
+
+    Twitter's Tweet Web Intent API allows users to also share the survey forms via tweet. Users will be prompted to log into their Twitter account if they haven't before posting the tweet.
+
+    [INSERT GIF/PHOTO HERE]
+
+3. **Share to Email**
+
+    Last but not least, users can also share their survey forms via email. By default, the web app will include **student-info (student_info-list@siswa.um.edu.my)** and **FSKTM STUDENT - UG (fsktm_student-list@um.edu.my)** as recipients, and **attach** the **survey's title**, **description** and **link** as subject and body respectively. 
+
+    [INSERT GIF/PHOTO HERE]
+
+### 7. Admin Dashboard
+
+This last feature is strictly for **administrators access only**. With Django's built-in admin dashboard, administrators can **directly access the dashboard** by clicking the Admin link at the navigation bar. 
 
 ## References
 
@@ -161,4 +178,4 @@ This is my most favourite feature of all! When users **click on the ellipsis '..
 3. https://stackoverflow.com/questions/59332225/hitting-500-error-on-django-with-debug-false-even-with-allowed-hosts
 4. https://stackoverflow.com/questions/6208363/sharing-a-url-with-a-query-string-on-twitter
 5. https://help.heroku.com/GDQ74SU2/django-migrations
-6. 
+6. https://developer.twitter.com/en/docs/twitter-for-websites/web-intents/overview
