@@ -105,7 +105,7 @@ This simple web app is — well — *incredibly simple*. It is a **single-page a
 
 Right at the top, users can clearly see the call-to-action (CTA) 'Add my survey' button, which when clicked, will **open a modal form** that allows them to **fill in the details of their surveys**:
 
-https://media.giphy.com/media/akTooS0d0jH7b9jb1F/giphy.gif
+![hippo](https://media.giphy.com/media/akTooS0d0jH7b9jb1F/giphy.gif)
 
 Survey forms are also **unapproved by default**, and will **only appear on the web app** after **approval from the administrator**. This is to ensure that each survey form is **thoroughly inspected** and to **avoid spams or malicious contents**.
 <br><br>
