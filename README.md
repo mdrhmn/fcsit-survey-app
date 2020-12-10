@@ -116,7 +116,6 @@ Although incredibly simple at its core, the web app supports a wide range of fun
 
 1. **Basic markdowns** (e.g. bold, italic, underline)
 2. **Text-formatting** (e.g. font-size, line-height, paragraph)
-3. **Image attachment** (yes, you can attach photos too!)
 
 ![hippo](https://media.giphy.com/media/7jpmYafnK6EfOUQv4h/giphy.gif)
 <br><br>
