@@ -11,18 +11,22 @@
 
 {% block header_container %}
 <div class="position-relative overflow-hidden m-md-3 text-center bg-light">
-    <div class="col-md-7 p-lg-9 mx-auto my-5">
-        <h1 class="display-4 font-weight-normal">FCSIT Survey App</h1>
-        <div class="col-md-20 mx-auto">
-            <p class="lead font-weight-normal">This is a simple web application built to <b>compile all FCSIT survey
-                    forms</b> for faculty courses.</p>
-
-            <br>
-            <p class="lead font-weight-normal"><b>For usage of FCSIT UM students only.</b></p>
+    <div class="row justify-content-center">
+        <div class="col-md-6 p-lg-9 my-5">
+            <h1 class="display-4 font-weight-normal">FCSIT Survey App</h1>
+            <div class="col-md-20 mx-auto">
+                <p class="lead font-weight-normal">This is a simple web application built to <b>compile all FCSIT survey
+                        forms</b> for faculty courses.</p>
+                <br>
+                <p class="lead font-weight-normal"><b>For usage of FCSIT UM students only.</b></p>
+            </div>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#survey-form">Add My Survey</a>
         </div>
 
-        <a class="btn btn-secondary" data-toggle="modal" data-target="#survey-form">Add My Survey</a>
+        <img src="{% static 'img/landing_bg.svg' %}" style="width: 330px; vertical-align: middle; margin-left: 0px; margin-right: 0px; margin-top: 1.5rem!important; margin-bottom: 1.5rem!important">
+
     </div>
+
 </div>
 {% endblock %}
 
@@ -984,15 +988,16 @@
 
                     <div class="alert alert-primary" role="alert">
                         <small class="form-text">
-                        By submitting this survey application, you hereby:
-                        <br><br>
-                        1. <b>Declare</b> that the information provided is <b>true
-                        and correct</b>, and;
-                        <br><br>
-                        2. <b>Agree</b> that the information given <b>can be shared publicly</b> in this domain.
-                        <br><br>
-                        Please take note that your survey form will <b>only appear on the web app</b> after <b>approval</b> from the
-                        administrator.</small>
+                            By submitting this survey application, you hereby:
+                            <br><br>
+                            1. <b>Declare</b> that the information provided is <b>true
+                                and correct</b>, and;
+                            <br><br>
+                            2. <b>Agree</b> that the information given <b>can be shared publicly</b> in this domain.
+                            <br><br>
+                            Please take note that your survey form will <b>only appear on the web app</b> after
+                            <b>approval</b> from the
+                            administrator.</small>
                     </div>
 
                     <!-- <div class="alert alert-dark" role="alert">
