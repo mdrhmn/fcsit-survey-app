@@ -53,7 +53,7 @@ $(document).ready(function () {
             ['para', ['ul', 'ol', 'paragraph']],
             ['height', ['height']],
             ['table', ['table']],
-            ['insert', ['link', 'picture']],
+            ['insert', ['link']],
             ['view', ['fullscreen', 'codeview', 'help']],
         ],
     });
