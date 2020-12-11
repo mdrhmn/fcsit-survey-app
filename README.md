@@ -47,9 +47,10 @@ There are essentially **3 key reasons** that motivated me to do this side projec
 
 Huge shoutouts to the following groups of people for supporting this mini side project of mine:
 
-1. **Jason Chao** (my incredibly supportive internship supervisor)
-2. **Izzah Gani** (the first person whom I pitched the idea to at 1AM)
-3. **Faidz Hazirah**, **Nadia Jamhari** (my earliest beta testers)
+1. **Desmond Yeoh** (for motivating me to do this in the first place)
+2. **Jason Chao** (my incredibly supportive internship supervisor)
+3. **Izzah Gani** (the first person whom I pitched the idea to at 1AM)
+4. **Faidz Hazirah**, **Nadia Jamhari** (my earliest beta testers)
 
 <hr>
 
@@ -192,3 +193,6 @@ For any enquiries and bug reports, please contact me at **mdrhmn99@gmail.com**.
 4. https://stackoverflow.com/questions/6208363/sharing-a-url-with-a-query-string-on-twitter
 5. https://help.heroku.com/GDQ74SU2/django-migrations
 6. https://developer.twitter.com/en/docs/twitter-for-websites/web-intents/overview
+7. https://pixl.my/how-to-create-a-share-with-whatsapp-link-mobile-desktop-compatible/
+8. https://stackoverflow.com/questions/35803713/migrate-databases-from-local-django-to-heroku
+   
