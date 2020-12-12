@@ -238,6 +238,261 @@ To do this in Django/Python, one just need to use the **urllib.parse** library a
 
 Using the library's ```quote()``` function, you can easily encode any string into URL-friendly format that is ready for API request. 
 
+## Set Summernote to Read Only
+
+What if you want to keep Summernote's markdown features but prevent any sort of editing?
+
+If you Google it out, the official documentation will tell you to just disable Summernote using ```disable()```. This is not what we want because this will also disable the markdown display as well.
+
+After a ton of research and trial and error, I found a way to set Summernote to read only mode with a bit of clever tweaking.
+
+First, set the Summernote initialisation settings for ```airMode```, ```disableDragAndDrop``` and ```toolbar``` as follows. This is to ensure that the toolbar is hidden and users will not be able to drag and drop anything inside the Summernote textarea.
+
+```JavaScript
+    $('.summernote').summernote({
+        height: 200, // set editor height
+        minHeight: 200, // set minimum height of editor
+        maxHeight: 340, // set maximum height of editor
+        airMode: false,
+        disableDragAndDrop: true,
+        toolbar: [],
+        // focus: true // set focus to editable area after initializing summernote
+        placeholder: '',
+
+    });
+``` 
+
+Next, **add an ID** into the **div container** that surrounds the Summernote textarea like the example below:
+
+```HTML
+    <div class="card-body" id="survey-description-main">
+        <label>Description</label>
+        <textarea class="summernote" name="description" rows="7"
+            placeholder="Enter description" required
+            readonly>{{ survey.description }}</textarea>
+    </div>
+```
+
+Then, using the **container ID**, **disable Summernote's resize bar** and make the whole **Summernote textarea uneditable** using the following codes:
+
+```JavaScript
+    $("#survey-description-main .note-resizebar").removeClass("note-resizebar")
+    $('#survey-description-main .note-editable').attr('contenteditable', false);
+``` 
+
+Removing the ```.note-resizebar``` class will remove the resize bar at the bottom of the textarea while setting the ```contenteditable``` attribute of ```.note-editable`` div to false will render the whole Summernote textarea uneditable.
+
+If you're wondering as to why we need to use the container ID, this is because when I tried otherwise it did not work. It
+
+Up until this point, you should notice that the whole Summernote textarea is greyed out with no toolbar and resize bar. We can fix this easily with a bit of CSS tweaking:
+
+```CSS
+    .note-editor.note-airframe .note-editing-area .note-editable[contenteditable=false], .note-editor.note-frame .note-editing-area .note-editable[contenteditable=false] {
+        background-color: white;
+    }
+
+    .note-editor.note-airframe .note-statusbar, .note-editor.note-frame .note-statusbar {
+        background-color: rgba(255, 255, 255, 0);
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-top: 0px solid rgba(0, 0, 0, .2);
+    }
+
+    .note-editor.note-frame {
+        display: block!important;
+    }
+
+```
+
+What these will do is that it will **set the background color to white** and **remove any remnants of the resize bar**.
+
+## Set Django's DEBUG setting dynamically
+
+When in development, by default Django will set ```DEBUG``` to True to allow developers to clearly see the error details for debugging purposes. However, in production one is expected to set it to false because obviously, you wouldn't want users to see the error details and prefer them to be obscured instead. Besides, having the error details displayed reveals a lot about your codes, which can be dangerous and susceptible to hacking.
+
+Instead of having to manually set ```DEBUG``` to True and False back and forth, you can utilise Python's ```socket``` library to set the DEBUG state depending on which environment the web app is running:
+
+```Python
+    import socket
+
+    if socket.gethostname().endswith(".local"): # True in your local computer
+        DEBUG = True
+        ALLOWED_HOSTS = ["localhost", "127.0.0.1",]
+    else:
+        DEBUG = False
+        ALLOWED_HOSTS = ['https://fcsit-survey-app.herokuapp.com/']
+
+```
+
+With these few lines of codes, Django will automatically set ```DEBUG``` setting as well as the ```ALLOWED_HOSTS``` setting its appropriate value depending on the environment itself.
+
+## Set Django's DATABASE setting dynamically
+
+The local version of the Django app is using db.sqlite3 as its database. However, when we visit the Heroku version, ```APP_NAME.herokuapp.com```, Heroku will need to use a PostgreSQL database instead.
+
+What we want to do is to get our app running with SQLite whenever we’re working on it locally, and with Postgres whenever it’s in production. This can be done using the installed ```python-dotenv``` library.
+
+We will then use a file called ```.env``` to tell Django to use SQLite when running locally. To create ```.env``` and have it point Django to your SQLite database:
+
+```Shell
+    $ echo 'DATABASE_URL=sqlite:///db.sqlite3' > .env
+``` 
+
+Include the ```.env``` file inside our .gitignore when pushing to Heroku by running the following command:
+
+```Shell
+    $ echo '.env' >> .gitignore
+``` 
+
+Next, **import** the necessary libraries for deployment purposes:
+
+```Python
+    # backend/settings.py
+
+    import django_heroku
+    import dotenv
+    import dj_database_url
+``` 
+
+Then, we need to set up the **database** configuration:
+
+```Python
+    # backend/settings.py
+
+    # Build paths inside the project like this: BASE_DIR / 'subdir'.
+    BASE_DIR = Path(__file__).resolve().root.root
+
+    dotenv_file = os.path.join(BASE_DIR, ".env")
+    if os.path.isfile(dotenv_file):
+        dotenv.load_dotenv(dotenv_file)
+
+``` 
+
+Since ```.env``` won’t exist on Heroku, ```dotenv.load_dotenv(dotenv_file)``` will never get called on Heroku and Heroku will proceed to try to find its own database — PostgreSQL.
+
+We also need to configure the ```DATABASES``` setting as shown below:
+
+```Python
+    # backend/settings.py
+
+    DATABASES = {}
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+``` 
+
+The idea here is to clear the ```DATABASES``` variable and then set the ```'default'``` key using the ```dj_database_url``` module. This module uses Heroku’s ```DATABASE_URL``` variable if it’s on Heroku, or it uses the ```DATABASE_URL``` we set in the ```.env``` file if we’re working locally.
+
+If you ran the Django application as specified above, you might get an error when working locally because the ```dj_database_url``` module wants to log in with SSL. Heroku Postgres requires SSL, but SQLite doesn’t need or expect it. Here's how to fix that:
+
+```Python
+    # backend/settings.py
+
+    # This should already be in your settings.py
+    django_heroku.settings(locals())
+
+    # Add these at the very last line of settings.py
+    options = DATABASES['default'].get('OPTIONS', {})
+    options.pop('sslmode', None)
+``` 
+
+Test everything out by running the local Django server using ```python3 manage.py runserver```.
+
+## Deploying Django in Heroku
+
+Here is an **outline** following Heroku's from-product-to-productionized instructions for a Django deployment to Heroku:
+
+1. **Signup** for **[Heroku](https://signup.heroku.com/)** if you don't have an existing account
+2. **Install** the **[Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)**. For MacOS, use ```$ brew tap heroku/brew && brew install heroku```:
+3. **Log in** to your Heroku account by entering your credentials using ```$ heroku login``` or ```$ heroku login -i``` if you faced IP address mismatch issue:
+4. **Create** a n**ew Heroku app** either via Heroku CLI (```$ heroku create APP_NAME```) or directly in the **[Heroku dashboard](https://dashboard.heroku.com)**:
+
+    ![alt text](https://alphacoder.xyz/images/dply-dj/heroku-dashboard.png)
+    ![alt text](https://alphacoder.xyz/images/dply-dj/link-app-to-heroku.png)
+    
+
+5. **Add** the **Heroku remote** via ```$ heroku git:remote -a your-heroku-app.```
+    
+    * Note that the buildpacks **must be added in that order**. We can see the buildpacks we’ve added by running ```$ heroku buildpacks```. The **last buildpack** on the list **determines the process type** of the app.
+
+    ![alt text](https://alphacoder.xyz/images/dply-dj/buildpacks.png)
+
+6. Configure **PostgreSQL Heroku addon**
+   
+    * During production, Heroku will **not be using SQLite database**. Instead, we need to use **PostgreSQL** by configuring the addon to our app using ```$ heroku addons:create heroku-postgresql:hobby-dev```
+    * You can check whether this is successful by running ```$ heroku config```:
+    
+     ```Shell
+    $ === APP_NAME Config Vars
+    DATABASE_URL: postgres://[DATABASE_INFO_HERE]
+    ``` 
+
+    * The database info from the code snippet above refers to the URL containing your database’s location and access credentials all in one. Anyone with this URL can access your database, so be careful with it.
+    * You will notice that Heroku saves it as an **environment variable** called ```DATABASE_URL``` . This URL can and does change, so you should never hard code it. Instead, we’ll use the variable ```DATABASE_URL``` in  Django.
+
+7. Configure **Heroku config variables**
+
+    * According to Heroku, **config variables** are environment variables that can change the way your app behaves. In addition to creating your own, some add-ons come with their own.
+    * There are several environment variables that need to be set:
+
+    ```Shell
+    $ heroku config:set ALLOWED_HOSTS=APP_NAME.herokuapp.com
+    $ heroku config:set ALLOWED_HOSTS=APP_NAME.herokuapp.com
+    $ heroku config:set SECRET_KEY=DJANGO_SECRET_KEY
+    $ heroku config:set WEB_CONCURRENCY=1
+    ```
+
+8. Import ```django-heroku``` inside ```settings.py```
+
+    * ```django-heroku``` is a **Django library** for Heroku applications that ensures a more seamless deployment and development experience.
+    * This library provides:
+        * **Settings configuration** (Static files / WhiteNoise)
+        * **Logging configuration**
+        * **Test runner** (important for Heroku CI)
+    * In ```settings.py```, include the following at the very bottom:
+  
+    ```Python
+        # backend/settings.py
+
+        # Configure Django App for Heroku.
+        import django_heroku
+        django_heroku.settings(locals())
+    ``` 
+
+9. Set up Heroku-specific files and
+
+    #### A. runtime.txt
+
+    Heroku will install a default Python version if you don't specify one, but if you want to pick your Python version, you'll need a ```runtime.txt``` file. 
+
+    **Create one** in the **root directory**, next to your ```requirements.txt```, ```manage.py```, ```.gitignore``` and the rest. **Specify your Python version** with the prefix ```python-``` that you want your application to run on:
+
+    ```Shell
+        python-3.9.0
+    ``` 
+
+    #### B. requirements.txt
+
+    When deploying the web app, Heroku will need to **install all the required dependencies** for the web app to run by referring to the ```requirements.txt``` file. 
+
+    To ensure that all dependencies are included, consider freezing your dependencies using the command ```$ pip freeze > requirements.txt```. This will make your build a little bit more predictable by locking your exact dependency versions into your Git repo. If your dependencies aren't locked, you might find yourself deploying one version of Django one day and a new one the next.
+
+    #### C. Procfile
+
+    Heroku apps include a Heroku-specific ```Procfile``` that specifies the processes our application should run. The processes specified in this file will automatically boot on deploy to Heroku. 
+
+    Create a file named ```Procfile``` in the root level directory using ```$ touch Procfile``` command, right next to your ```requirements.txt``` and ```runtime.txt``` files. **(Make sure to capitalize the P of Procfile otherwise Heroku might not recognize it!)**:
+
+    Then, fill in the codes below:
+
+    ```Shell
+        release: python manage.py migrate
+        web: gunicorn backend.wsgi --log-file -
+    ``` 
+
+### IMPORTANT NOTE:
+
+When deploying to Heroku, **make sure that your migrations folder are not included inside .gitignore**!
+
 # References
 
 1. https://fcsit-fyp-surveys.herokuapp.com/
