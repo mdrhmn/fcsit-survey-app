@@ -1,5 +1,7 @@
 # FCSIT Survey App
 
+# General Documentation
+
 ## Introduction
 
 This is a simple web application built to **compile all FCSIT survey forms** for **faculty courses**. For **usage of FCSIT UM undergraduate students only**.
@@ -185,7 +187,58 @@ That being said, I hope that this web app will be beneficial to the students of 
 
 For any enquiries and bug reports, please contact me at **mdrhmn99@gmail.com**.
 
-## References
+# Technical Documentation
+
+## Converting Markdown to Plain Text
+
+One of the main features of this web app is the ability for users to share the surveys to social media platforms such as WhatsApp, Email and Platform. However, because I integrated Summernote into the web app specifically the survey's description, parsing the description is not as straightforward. I need to find a way to convert the markdown text into plain text. I
+
+There is no direct way to convert markdown to plain text. However, thankfully, I found a way to do just that by first **converting the markdown text into HTML** using Markdown library, and then **convert the HTML to plain text** using BeautifulSoup library:
+
+First, import the necessary libraries and store all the string contents that you want to be converted inside a variable. Then, use the ```markdown``` function to convert the markdown string to HTML. 
+
+```Python
+    from bs4 import BeautifulSoup
+    from markdown import markdown
+
+    markdown_string = request.POST['title'] + '\n\n' + request.POST['description'] + '\n\n' + request.POST['survey_link']
+    html = markdown(markdown_string)
+``` 
+
+We also use regular expressions to remove code snippers. 
+
+```Python
+    html = re.sub(r'<pre>(.*?)</pre>', ' ', html)
+    html = re.sub(r'<code>(.*?)</code >', ' ', html)
+``` 
+
+Finally, use ```BeautifulSoup``` to parse the HTML back to plain text.
+
+```Python
+    soup = BeautifulSoup(html, "html.parser")
+    text = ''.join(soup.findAll(text=True))
+``` 
+
+## URL Encoding
+
+In order to use APIs such as that of WhatsApp's, first you need to encode your text into a **URL-friendly format (called URL Encoding)**. This converts:
+
+"your regular text, including links like https://facebook.com", into:
+
+"your%20regular%20text%2C%20including%20links%20like%20https%3A%2F%2Ffacebook.com"
+
+To do this in Django/Python, one just need to use the **urllib.parse** library as follows:
+
+```Python
+    import urllib.parse
+
+    link = urllib.parse.quote(text)
+    return redirect('https://api.whatsapp.com/send?phone=&text=' + link)
+``` 
+
+Using the library's ```quote()``` function, you can easily encode any string into URL-friendly format that is ready for API request. 
+
+# References
 
 1. https://fcsit-fyp-surveys.herokuapp.com/
 2. https://www.codementor.io/@jamesezechukwu/how-to-deploy-django-app-on-heroku-dtsee04d4
