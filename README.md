@@ -487,32 +487,32 @@ Here is an **outline** following Heroku's from-product-to-productionized instruc
 
     #### A. runtime.txt
 
-        Heroku will install a default Python version if you don't specify one, but if you want to pick your Python version, you'll need a ```runtime.txt``` file. 
+    Heroku will install a default Python version if you don't specify one, but if you want to pick your Python version, you'll need a ```runtime.txt``` file. 
 
-        **Create one** in the **root directory**, next to your ```requirements.txt```, ```manage.py```, ```.gitignore``` and the rest. **Specify your Python version** with the prefix ```python-``` that you want your application to run on:
+    **Create one** in the **root directory**, next to your ```requirements.txt```, ```manage.py```, ```.gitignore``` and the rest. **Specify your Python version** with the prefix ```python-``` that you want your application to run on:
 
-        ```Shell
-            python-3.9.0
-        ``` 
+    ```Shell
+        python-3.9.0
+    ``` 
 
     #### B. requirements.txt
 
-        When deploying the web app, Heroku will need to **install all the required dependencies** for the web app to run by referring to the ```requirements.txt``` file. 
+    When deploying the web app, Heroku will need to **install all the required dependencies** for the web app to run by referring to the ```requirements.txt``` file. 
 
-        To ensure that all dependencies are included, consider freezing your dependencies using the command ```$ pip freeze > requirements.txt```. This will make your build a little bit more predictable by locking your exact dependency versions into your Git repo. If your dependencies aren't locked, you might find yourself deploying one version of Django one day and a new one the next.
+    To ensure that all dependencies are included, consider freezing your dependencies using the command ```$ pip freeze > requirements.txt```. This will make your build a little bit more predictable by locking your exact dependency versions into your Git repo. If your dependencies aren't locked, you might find yourself deploying one version of Django one day and a new one the next.
 
     #### C. Procfile
 
-        Heroku apps include a Heroku-specific ```Procfile``` that specifies the processes our application should run. The processes specified in this file will automatically boot on deploy to Heroku. 
+    Heroku apps include a Heroku-specific ```Procfile``` that specifies the processes our application should run. The processes specified in this file will automatically boot on deploy to Heroku. 
 
-        Create a file named ```Procfile``` in the root level directory using ```$ touch Procfile``` command, right next to your ```requirements.txt``` and ```runtime.txt``` files. **(Make sure to capitalize the P of Procfile otherwise Heroku might not recognize it!)**:
+    Create a file named ```Procfile``` in the root level directory using ```$ touch Procfile``` command, right next to your ```requirements.txt``` and ```runtime.txt``` files. **(Make sure to capitalize the P of Procfile otherwise Heroku might not recognize it!)**:
 
-        Then, fill in the codes below:
+    Then, fill in the codes below:
 
-        ```Shell
-            release: python manage.py migrate
-            web: gunicorn backend.wsgi --log-file -
-        ``` 
+    ```Shell
+        release: python manage.py migrate
+        web: gunicorn backend.wsgi --log-file -
+    ``` 
 
 
 11. **Commit and Push**
