@@ -223,9 +223,9 @@ Finally, use ```BeautifulSoup``` to parse the HTML back to plain text.
 
 In order to use APIs such as that of WhatsApp's, first you need to encode your text into a **URL-friendly format (called URL Encoding)**. This converts:
 
-"your regular text, including links like https://facebook.com", into:
+"*your regular text, including links like https://facebook.com*", into:
 
-"your%20regular%20text%2C%20including%20links%20like%20https%3A%2F%2Ffacebook.com"
+"*your%20regular%20text%2C%20including%20links%20like%20https%3A%2F%2Ffacebook.com*"
 
 To do this in Django/Python, one just need to use the **urllib.parse** library as follows:
 
