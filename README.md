@@ -422,8 +422,8 @@ Here is an **outline** following Heroku's from-product-to-productionized instruc
     * You can check whether this is successful by running ```$ heroku config```:
     
      ```Shell
-    $ === APP_NAME Config Vars
-    DATABASE_URL: postgres://[DATABASE_INFO_HERE]
+        $ === APP_NAME Config Vars
+        DATABASE_URL: postgres://[DATABASE_INFO_HERE]
     ``` 
 
     * The database info from the code snippet above refers to the URL containing your database’s location and access credentials all in one. Anyone with this URL can access your database, so be careful with it.
@@ -435,10 +435,10 @@ Here is an **outline** following Heroku's from-product-to-productionized instruc
     * There are several environment variables that need to be set:
 
     ```Shell
-    $ heroku config:set ALLOWED_HOSTS=APP_NAME.herokuapp.com
-    $ heroku config:set ALLOWED_HOSTS=APP_NAME.herokuapp.com
-    $ heroku config:set SECRET_KEY=DJANGO_SECRET_KEY
-    $ heroku config:set WEB_CONCURRENCY=1
+        $ heroku config:set ALLOWED_HOSTS=APP_NAME.herokuapp.com
+        $ heroku config:set ALLOWED_HOSTS=APP_NAME.herokuapp.com
+        $ heroku config:set SECRET_KEY=DJANGO_SECRET_KEY
+        $ heroku config:set WEB_CONCURRENCY=1
     ```
 
 8. Import ```django-heroku``` inside ```settings.py```
@@ -491,7 +491,7 @@ Here is an **outline** following Heroku's from-product-to-productionized instruc
 
 ### IMPORTANT NOTE:
 
-When deploying to Heroku, **make sure that your migrations folder are not included inside .gitignore**!
+When deploying to Heroku, **make sure that your migrations folder are not included inside .gitignore**! Heroku will need the migration files to update the PostgreSQL database,
 
 # References
 
