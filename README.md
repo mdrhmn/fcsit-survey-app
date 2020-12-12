@@ -330,6 +330,7 @@ With these few lines of codes, Django will automatically set ```DEBUG``` setting
 
 The local version of the Django app is using db.sqlite3 as its database. However, when we visit the Heroku version, ```APP_NAME.herokuapp.com```, Heroku will need to use a PostgreSQL database instead.
 
+### A. Create .env
 What we want to do is to get our app running with SQLite whenever we’re working on it locally, and with Postgres whenever it’s in production. This can be done using the installed ```python-dotenv``` library.
 
 We will then use a file called ```.env``` to tell Django to use SQLite when running locally. To create ```.env``` and have it point Django to your SQLite database:
@@ -343,6 +344,8 @@ Include the ```.env``` file inside our .gitignore when pushing to Heroku by runn
 ```Shell
     $ echo '.env' >> .gitignore
 ``` 
+
+### B. Update settings.py
 
 Next, **import** the necessary libraries for deployment purposes:
 
@@ -401,16 +404,16 @@ Test everything out by running the local Django server using ```python3 manage.p
 
 Here is an **outline** following Heroku's from-product-to-productionized instructions for a Django deployment to Heroku:
 
-1. **Signup** for **[Heroku](https://signup.heroku.com/)** if you don't have an existing account
-2. **Install** the **[Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)**. For MacOS, use ```$ brew tap heroku/brew && brew install heroku```:
-3. **Log in** to your Heroku account by entering your credentials using ```$ heroku login``` or ```$ heroku login -i``` if you faced IP address mismatch issue:
-4. **Create** a n**ew Heroku app** either via Heroku CLI (```$ heroku create APP_NAME```) or directly in the **[Heroku dashboard](https://dashboard.heroku.com)**:
+1. Signup for **[Heroku](https://signup.heroku.com/)** if you don't have an existing account.
+2. Install the **[Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)**. For MacOS, use ```$ brew tap heroku/brew && brew install heroku```.
+3. Log in to your Heroku account by entering your credentials using ```$ heroku login``` or ```$ heroku login -i``` if you faced IP address mismatch issue:
+4. Create a n**ew Heroku app** either via Heroku CLI (```$ heroku create APP_NAME```) or directly in the **[Heroku dashboard](https://dashboard.heroku.com)**:
 
     ![alt text](https://alphacoder.xyz/images/dply-dj/heroku-dashboard.png)
     ![alt text](https://alphacoder.xyz/images/dply-dj/link-app-to-heroku.png)
     
 
-5. **Add** the **Heroku remote** via ```$ heroku git:remote -a your-heroku-app.```
+5. Add the **Heroku remote** via ```$ heroku git:remote -a your-heroku-app.```
     
     * Note that the buildpacks **must be added in that order**. We can see the buildpacks we’ve added by running ```$ heroku buildpacks```. The **last buildpack** on the list **determines the process type** of the app.
 
@@ -421,7 +424,7 @@ Here is an **outline** following Heroku's from-product-to-productionized instruc
     * During production, Heroku will **not be using SQLite database**. Instead, we need to use **PostgreSQL** by configuring the addon to our app using ```$ heroku addons:create heroku-postgresql:hobby-dev```
     * You can check whether this is successful by running ```$ heroku config```:
     
-     ```Shell
+    ```Shell
         $ === APP_NAME Config Vars
         DATABASE_URL: postgres://[DATABASE_INFO_HERE]
     ``` 
@@ -458,7 +461,27 @@ Here is an **outline** following Heroku's from-product-to-productionized instruc
         django_heroku.settings(locals())
     ``` 
 
-9. Set up Heroku-specific files and
+9. Set up **WhiteNoise configuration**
+
+    **[WhiteNoise](http://whitenoise.evans.io/en/stable/)** allows your web app to **serve its own static files**, making it a self-contained unit that can be deployed anywhere without relying on nginx, Amazon S3 or any other external service. (Especially useful on Heroku, OpenShift and other PaaS providers.)
+
+    Since this is already installed from the ```requirements.txt``` file earlier on, we need to update ```settings.py```:
+
+
+    ```Python
+        # backend/settings.py
+
+        MIDDLEWARE = [
+        'django.middleware.security.SecurityMiddleware',
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+        # ...
+        ]
+
+        STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+        STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    ``` 
+    
+10. Set up **Heroku-specific files**
 
     #### A. runtime.txt
 
@@ -488,6 +511,19 @@ Here is an **outline** following Heroku's from-product-to-productionized instruc
         release: python manage.py migrate
         web: gunicorn backend.wsgi --log-file -
     ``` 
+
+
+11. **Commit and Push**
+
+    Once all the previous steps are completed, we are ready to **finally commit and push all changes**:
+
+    ```Shell
+        $ git add .
+        $ git commit -m "blah blah blah"
+        $ git push heroku master
+    ``` 
+
+    After the build is done and your app has been released, visit ```YOUR-APP-NAME.herokuapp.com```
 
 ### IMPORTANT NOTE:
 
