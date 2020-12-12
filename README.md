@@ -529,7 +529,7 @@ Here is an **outline** following Heroku's from-product-to-productionized instruc
 
 ### IMPORTANT NOTE:
 
-When deploying to Heroku, **make sure that your migrations folder are not included inside .gitignore**! Heroku will need the migration files to update the PostgreSQL database,
+When deploying to Heroku, **make sure that your migrations folder are not included inside .gitignore**! Heroku will need the migration files to update the PostgreSQL database.
 
 # References
 
