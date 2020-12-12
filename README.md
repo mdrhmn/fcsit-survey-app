@@ -193,7 +193,7 @@ For any enquiries and bug reports, please contact me at **mdrhmn99@gmail.com**.
 
 One of the main features of this web app is the ability for users to share the surveys to social media platforms such as WhatsApp, Email and Platform. However, because I integrated Summernote into the web app specifically the survey's description, parsing the description is not as straightforward. I need to find a way to convert the markdown text into plain text. I
 
-There is no direct way to convert markdown to plain text. However, thankfully, I found a way to do just that by first **converting the markdown text into HTML** using Markdown library, and then **convert the HTML to plain text** using BeautifulSoup library:
+There is no direct way to convert markdown to plain text. However, thankfully, I found a way to do just that by first **converting the markdown text into HTML** using **Markdown** library, and then **convert the HTML to plain text** using **BeautifulSoup** library:
 
 First, import the necessary libraries and store all the string contents that you want to be converted inside a variable. Then, use the ```markdown``` function to convert the markdown string to HTML. 
 
