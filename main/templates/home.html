@@ -778,7 +778,7 @@
                             <div id="accordion-{{ course.code }}" class="accordion">
 
                                 {% for survey in survey_list %}
-                                {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True and survey.expiry_date <= current_date %}
+                                {% if survey.year.year == 3 and survey.course_code.code == course.code and survey.approved == True and survey.expiry_date >= current_date %}
                                 <div class="card {{ course.code }}" id="{{ survey.id }}">
                                     <div class="card-header">
                                         <div class="row justify-content-between">
