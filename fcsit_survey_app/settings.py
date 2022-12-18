@@ -34,7 +34,7 @@ SECRET_KEY = '1n#w!0nafu6i(!b7(19+v$5w5(ro7633=fxltzap!s)19hw$c%'
 
 # ALLOWED_HOSTS = ['https://fcsit-survey-app.herokuapp.com/']
 
-if socket.gethostname().endswith(".local"): # True in your local computer
+if socket.gethostname().endswith(".local"):  # True in your local computer
     DEBUG = True
     ALLOWED_HOSTS = ["localhost", "127.0.0.1",]
 else:
